@@ -37,8 +37,6 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    api 'me.jessyan:arms-imageloader-glide:2.5.0'
-
     //tools
     api rootProject.ext.dependencies["androideventbus"]
     api(rootProject.ext.dependencies["arouter"]) {
@@ -46,5 +44,6 @@ dependencies {
         exclude module: 'support-annotations'
     }
     api rootProject.ext.dependencies["retrofit-url-manager"]
-    implementation project(path: ':CommonMvp')
+    api project(path: ':CommonMvp')
+    api project(path: ':CommonImageloader-glide')
 }
