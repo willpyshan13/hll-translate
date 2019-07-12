@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "me.jessyan.armscomponent.app"
+        applicationId "com.hll.translate"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
@@ -58,6 +58,7 @@ dependencies {
         runtimeOnly project(":module_zhihu")
         runtimeOnly project(":module_gank")
         runtimeOnly project(":module_gold")
+        runtimeOnly project(":module_launcher")
     }
     implementation project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
     implementation project(":CommonService")
