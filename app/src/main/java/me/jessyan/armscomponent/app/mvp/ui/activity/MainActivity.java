@@ -33,8 +33,6 @@ import butterknife.OnClick;
 import me.jessyan.armscomponent.app.R;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.commonsdk.utils.Utils;
-import me.jessyan.armscomponent.commonservice.gank.service.GankInfoService;
-import me.jessyan.armscomponent.commonservice.gold.service.GoldInfoService;
 import me.jessyan.armscomponent.commonservice.zhihu.service.ZhihuInfoService;
 
 /**
@@ -58,10 +56,6 @@ public class MainActivity extends BaseActivity {
 
     @Autowired(name = RouterHub.ZHIHU_SERVICE_ZHIHUINFOSERVICE)
     ZhihuInfoService mZhihuInfoService;
-    @Autowired(name = RouterHub.GANK_SERVICE_GANKINFOSERVICE)
-    GankInfoService mGankInfoService;
-    @Autowired(name = RouterHub.GOLD_SERVICE_GOLDINFOSERVICE)
-    GoldInfoService mGoldInfoService;
 
     private long mPressedTime;
 
@@ -80,8 +74,6 @@ public class MainActivity extends BaseActivity {
         ARouter.getInstance().inject(this);
         //这里想展示组件向外提供服务的功能, 模拟下组件向宿主提供一些必要的信息, 这里为了简单就直接返回本地数据不请求网络了
         loadZhihuInfo();
-        loadGankInfo();
-        loadGoldInfo();
     }
 
     private void loadZhihuInfo() {
@@ -91,24 +83,6 @@ public class MainActivity extends BaseActivity {
             return;
         }
         mZhihuButton.setText(mZhihuInfoService.getInfo().getName());
-    }
-
-    private void loadGankInfo() {
-        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
-        if (mGankInfoService == null) {
-            mGankButton.setEnabled(false);
-            return;
-        }
-        mGankButton.setText(mGankInfoService.getInfo().getName());
-    }
-
-    private void loadGoldInfo() {
-        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
-        if (mGoldInfoService == null) {
-            mGoldButton.setEnabled(false);
-            return;
-        }
-        mGoldButton.setText(mGoldInfoService.getInfo().getName());
     }
 
     @Override

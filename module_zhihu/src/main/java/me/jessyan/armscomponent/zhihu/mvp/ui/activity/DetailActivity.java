@@ -55,7 +55,7 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-@Route(path = RouterHub.ZHIHU_DETAILACTIVITY)
+
 public class DetailActivity extends BaseActivity<DetailPresenter> implements DetailContract.View {
     @BindView(R2.id.webView)
     WebView mWebView;
