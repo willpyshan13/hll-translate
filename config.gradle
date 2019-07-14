@@ -13,8 +13,8 @@ ext {
             androidSupportSdkVersion: "28.0.0",
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.19",
-            glideSdkVersion         : "4.8.0",
-            butterknifeSdkVersion   : "8.8.1",
+            glideSdkVersion         : "4.9.0",
+            butterknifeSdkVersion   : "10.1.0",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
             espressoSdkVersion      : "3.0.1",
@@ -23,12 +23,14 @@ ext {
 
     dependencies = [
             //support
-            "appcompat-v7"             : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
-            "design"                   : "com.android.support:design:${version["androidSupportSdkVersion"]}",
-            "support-v4"               : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
-            "cardview-v7"              : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
-            "annotations"              : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
-            "recyclerview-v7"          : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
+            "appcompat-v7"             : 'androidx.appcompat:appcompat:1.0.0',
+            "design"                   : 'com.google.android.material:material:1.0.0',
+            "support-v4"               : 'androidx.legacy:legacy-support-v4:1.0.0',
+            "cardview-v7"              : 'androidx.cardview:cardview:1.0.0',
+            "annotations"              : 'androidx.annotation:annotation:1.0.0',
+            "recyclerview-v7"          : 'androidx.recyclerview:recyclerview:1.0.0',
+            "constraint-layout"        : 'androidx.constraintlayout:constraintlayout:1.1.3',
+
 
             //network
             "retrofit"                 : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
@@ -96,7 +98,7 @@ ext {
 
             //test
             "junit"                    : "junit:junit:4.12",
-            "androidJUnitRunner"       : "android.support.test.runner.AndroidJUnitRunner",
+            "androidJUnitRunner"       : "androidx.test.runner.AndroidJUnitRunner",
             "runner"                   : "com.android.support.test:runner:1.0.1",
             "espresso-core"            : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
             "espresso-contrib"         : "com.android.support.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}",

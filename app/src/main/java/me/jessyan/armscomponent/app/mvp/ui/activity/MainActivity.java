@@ -16,8 +16,8 @@
 package me.jessyan.armscomponent.app.mvp.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
@@ -120,13 +120,13 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_zhihu:
-                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_HOMEACTIVITY);
+                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_DETAILACTIVITY);
                 break;
             case R.id.bt_gank:
-                Utils.navigation(MainActivity.this, RouterHub.GANK_HOMEACTIVITY);
+                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_DETAILACTIVITY);
                 break;
             case R.id.bt_gold:
-                Utils.navigation(MainActivity.this, RouterHub.GOLD_HOMEACTIVITY);
+                Utils.navigation(MainActivity.this, RouterHub.ZHIHU_DETAILACTIVITY);
                 break;
         }
     }

@@ -17,3 +17,13 @@
 #}
 
 # 混淆规则在 arms moudule下的proguard-rules.pro中,混淆前先参阅https://github.com/JessYanCoding/MVPArms/wiki#1.5
+
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+
+# for DexGuard only
+-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
