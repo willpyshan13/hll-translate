@@ -22,15 +22,13 @@ import com.hll.launcher.mvp.presenter.LauncherPresenter;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 
-import javax.inject.Inject;
-
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.commonsdk.utils.Utils;
 
-@Route(path = RouterHub.ZHIHU_DETAILACTIVITY)
+@Route(path = RouterHub.TRANSLATE_DETAILACTIVITY)
 public class MainActivity extends BaseActivity<LauncherPresenter> implements LauncherContract.View {
 
     @BindView(R2.id.launcher_tv_local)
@@ -64,7 +62,7 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        mMainRecycle.setLayoutManager(new GridLayoutManager(this,2, GridLayoutManager.HORIZONTAL,false));
+        mMainRecycle.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false));
         mMainRecycle.setAdapter(new MainAdapter(this));
     }
 
@@ -83,41 +81,53 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
 
     }
 
-    class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder>{
+    class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
 
         private Context mContext;
+        private String[] itemIndex;
+        private int[] itemImage;
 
         public MainAdapter(Context mContext) {
             this.mContext = mContext;
+            itemIndex = mContext.getResources().getStringArray(R.array.launcher_item);
+            itemImage = mContext.getResources().getIntArray(R.array.launcher_image);
         }
 
         @NonNull
         @Override
         public MainHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view  = LayoutInflater.from(mContext).inflate(R.layout.launcher_main_item,null);
-
-            return new MainHolder(view);
+            MainHolder holder = null;
+            View view = LayoutInflater.from(mContext).inflate(R.layout.launcher_main_item, null);
+            holder = new MainHolder(view);
+            return holder;
         }
 
         @Override
         public void onBindViewHolder(@NonNull MainHolder holder, int position) {
-
+            holder.title.setText(itemIndex[position]);
+            holder.headimage.setBackgroundResource(itemImage[position]);
         }
 
         @Override
         public int getItemCount() {
-            return 8;
+            return itemIndex.length;
         }
 
-        class MainHolder extends RecyclerView.ViewHolder{
+        class MainHolder extends RecyclerView.ViewHolder {
 
-            @BindView(R2.id.launcher_main_item_image)
             public ImageView headimage;
-            @BindView(R2.id.launcher_main_item_tv)
             public TextView title;
 
             public MainHolder(@NonNull View itemView) {
                 super(itemView);
+                headimage = itemView.findViewById(R.id.launcher_main_item_image);
+                title = itemView.findViewById(R.id.launcher_main_item_tv);
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOMEACTIVITY);
+                    }
+                });
             }
         }
     }

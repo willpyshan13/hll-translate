@@ -58,7 +58,7 @@ public class SplashActivity extends BaseActivity {
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        Utils.navigation(SplashActivity.this, RouterHub.ZHIHU_DETAILACTIVITY);
+                        Utils.navigation(SplashActivity.this, RouterHub.TRANSLATE_DETAILACTIVITY);
                         finish();
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }

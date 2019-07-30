@@ -71,7 +71,7 @@ public abstract class ZhihuHomeModule {
             @Override
             public void onItemClick(View view, int viewType, DailyListBean.StoriesBean data, int position) {
                 ARouter.getInstance()
-                        .build(RouterHub.ZHIHU_DETAILACTIVITY)
+                        .build(RouterHub.TRANSLATE_DETAILACTIVITY)
                         .withInt(ZhihuConstants.DETAIL_ID, data.getId())
                         .withString(ZhihuConstants.DETAIL_TITLE, data.getTitle())
                         .navigation(zhihuHomeView.getActivity());

@@ -51,7 +51,7 @@ import timber.log.Timber;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-@Route(path = RouterHub.ZHIHU_HOMEACTIVITY)
+@Route(path = RouterHub.TRANSLATE_HOMEACTIVITY)
 public class ZhihuHomeActivity extends BaseActivity<ZhihuHomePresenter> implements ZhihuHomeContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R2.id.recyclerView)

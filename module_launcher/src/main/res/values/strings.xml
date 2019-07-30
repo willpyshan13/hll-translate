@@ -1,3 +1,24 @@
 <resources>
     <string name="launcher_name">module_launcher</string>
+    <string-array name="launcher_item">
+        <item>语音翻译</item>
+        <item>拍照翻译</item>
+        <item>个人热点</item>
+        <item>组团对讲</item>
+        <item>汇率换算</item>
+        <item>紧急求助</item>
+        <item>全球流量</item>
+        <item>系统设置</item>
+    </string-array>
+
+    <integer-array name="launcher_image">
+        <item>@mipmap/launcher_main_voice</item>
+        <item>@mipmap/launcher_main_photo</item>
+        <item>@mipmap/launcher_main_share</item>
+        <item>@mipmap/launcher_main_network_speak</item>
+        <item>@mipmap/launcher_main_transfor</item>
+        <item>@mipmap/launcher_main_sos</item>
+        <item>@mipmap/launcher_main_global</item>
+        <item>@mipmap/launcher_main_setting</item>
+    </integer-array>
 </resources>
