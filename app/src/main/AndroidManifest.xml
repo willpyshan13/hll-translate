@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="me.jessyan.armscomponent.app">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -15,6 +16,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/arms_component_logo"
         android:label="@string/public_app_name"
+        tools:replace="android:label"
         android:networkSecurityConfig="@xml/public_network_security_config"
         android:supportsRtl="true"
         android:theme="@style/public_AppTheme">

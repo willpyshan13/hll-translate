@@ -44,7 +44,7 @@ public interface RouterHub {
      */
     String APP = "/app";//宿主 App 组件
     String ZHIHU = "/zhihu";//知乎组件
-    String GANK = "/gank";//干货集中营组件
+    String CHAT = "/chat";//干货集中营组件
     String GOLD = "/gold";//稀土掘金组件
 
     /**
@@ -67,4 +67,6 @@ public interface RouterHub {
 
     String TRANSLATE_HOMEACTIVITY = ZHIHU + "/HomeActivity";
     String TRANSLATE_DETAILACTIVITY = ZHIHU + "/DetailActivity";
+
+    String CHAT_DETAILACTIVITY = CHAT + "/DetailActivity";
 }

@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOMEACTIVITY);
+                        Utils.navigation(MainActivity.this, RouterHub.CHAT_DETAILACTIVITY);
                     }
                 });
             }
