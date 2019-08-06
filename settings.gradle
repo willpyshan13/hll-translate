@@ -1,1 +1,1 @@
-include ':app', ':CommonSDK', ':CommonService', ':CommonRes', ':module_translate', ':module_launcher', ':CommonMvp', ':CommonImageloader-glide', ':module_chat', ':module_chat_avchatkit',  ':module_chat_faceunity', ':module_chat_jrmfRpWalletlib', ':module_chat_rtskit', ':module_chat_uikit'
+include ':app', ':CommonSDK', ':CommonService', ':CommonRes', ':module_translate', ':module_launcher', ':CommonMvp', ':CommonImageloader-glide'
