@@ -15,15 +15,10 @@
  */
 package com.jess.arms.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.SpannedString;
@@ -35,11 +30,17 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jess.arms.base.App;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.integration.AppManager;
 
 import java.security.MessageDigest;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * ================================================
@@ -201,7 +202,7 @@ public class ArmsUtils {
      * @param <T>
      * @return
      */
-    public static <T extends View> T findViewByName(Context context, Activity activity, String viewName) {
+    public static <T extends View> T findViewByName(Context context, AppCompatActivity activity, String viewName) {
         int id = getResources(context).getIdentifier(viewName, "id", context.getPackageName());
         T v = (T) activity.findViewById(id);
         return v;
@@ -301,7 +302,7 @@ public class ArmsUtils {
      * @param activity
      * @param homeActivityClass
      */
-    public static void startActivity(Activity activity, Class homeActivityClass) {
+    public static void startActivity(AppCompatActivity activity, Class homeActivityClass) {
         Intent intent = new Intent(activity.getApplicationContext(), homeActivityClass);
         activity.startActivity(intent);
     }
@@ -311,7 +312,7 @@ public class ArmsUtils {
      *
      * @param
      */
-    public static void startActivity(Activity activity, Intent intent) {
+    public static void startActivity(AppCompatActivity activity, Intent intent) {
         activity.startActivity(intent);
     }
 
@@ -397,7 +398,7 @@ public class ArmsUtils {
      *
      * @param activity
      */
-    public static void statuInScreen(Activity activity) {
+    public static void statuInScreen(AppCompatActivity activity) {
         WindowManager.LayoutParams attrs = activity.getWindow().getAttributes();
         attrs.flags &= ~WindowManager.LayoutParams.FLAG_FULLSCREEN;
         activity.getWindow().setAttributes(attrs);

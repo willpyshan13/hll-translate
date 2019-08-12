@@ -18,9 +18,6 @@ package com.jess.arms.integration;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.base.delegate.ActivityDelegate;
@@ -36,13 +33,17 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import dagger.Lazy;
 
 
 /**
  * ================================================
  * {@link Application.ActivityLifecycleCallbacks} 默认实现类
- * 通过 {@link ActivityDelegate} 管理 {@link Activity}
+ * 通过 {@link ActivityDelegate} 管理 {@link AppCompatActivity}
  *
  * @see <a href="http://www.jianshu.com/p/75a5c24174b2">ActivityLifecycleCallbacks 分析文章</a>
  * Created by JessYan on 21/02/2017 14:23
@@ -72,11 +73,12 @@ public class ActivityLifecycle implements Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         //如果 intent 包含了此字段,并且为 true 说明不加入到 list 进行统一管理
         boolean isNotAdd = false;
-        if (activity.getIntent() != null)
+        if (activity.getIntent() != null) {
             isNotAdd = activity.getIntent().getBooleanExtra(AppManager.IS_NOT_ADD_ACTIVITY_LIST, false);
-
-        if (!isNotAdd)
+        }
+        if (!isNotAdd) {
             mAppManager.addActivity(activity);
+        }
 
         //配置ActivityDelegate
         if (activity instanceof IActivity) {

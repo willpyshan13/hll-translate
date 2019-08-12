@@ -15,10 +15,10 @@
  */
 package me.jessyan.armscomponent.commonres.utils;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import me.jessyan.armscomponent.commonres.R;
 
 
@@ -32,11 +32,11 @@ import me.jessyan.armscomponent.commonres.R;
  * ================================================
  */
 public class Anim {
-    public static void exit(Activity obj) {
+    public static void exit(AppCompatActivity obj) {
         obj.overridePendingTransition(R.anim.public_translate_left_to_center, R.anim.public_translate_center_to_right);
     }
 
-    public static void in(Activity obj) {
+    public static void in(AppCompatActivity obj) {
         obj.overridePendingTransition(R.anim.public_translate_right_to_center, R.anim.public_translate_center_to_left);
     }
 

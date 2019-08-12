@@ -18,9 +18,6 @@ package com.jess.arms.base.delegate;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
 
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.BaseFragment;
@@ -29,9 +26,14 @@ import com.jess.arms.integration.ActivityLifecycle;
 import com.jess.arms.integration.cache.Cache;
 import com.jess.arms.integration.cache.LruCache;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 /**
  * ================================================
- * 框架要求框架中的每个 {@link Activity} 都需要实现此类,以满足规范
+ * 框架要求框架中的每个 {@link AppCompatActivity} 都需要实现此类,以满足规范
  *
  * @see BaseActivity
  * Created by JessYan on 26/04/2017 21:42

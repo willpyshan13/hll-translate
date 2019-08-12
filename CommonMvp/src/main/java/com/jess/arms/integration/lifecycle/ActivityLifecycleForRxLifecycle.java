@@ -18,7 +18,6 @@ package com.jess.arms.integration.lifecycle;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 
 import com.trello.rxlifecycle2.RxLifecycle;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -26,12 +25,14 @@ import com.trello.rxlifecycle2.android.ActivityEvent;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import dagger.Lazy;
 import io.reactivex.subjects.Subject;
 
 /**
  * ================================================
- * 配合 {@link ActivityLifecycleable} 使用,使 {@link Activity} 具有 {@link RxLifecycle} 的特性
+ * 配合 {@link ActivityLifecycleable} 使用,使 {@link AppCompatActivity} 具有 {@link RxLifecycle} 的特性
  * <p>
  * Created by JessYan on 25/08/2017 18:56
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>

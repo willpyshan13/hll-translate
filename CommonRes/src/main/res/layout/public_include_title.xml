@@ -23,7 +23,7 @@
             android:layout_marginLeft="@dimen/public_mar_left_10dp"
             android:layout_marginRight="@dimen/public_mar_right_10dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/public_ic_arrow_back_white_24dp"/>
+            app:srcCompat="@drawable/public_ic_arrow_back_white_24dp"/>
 
     </RelativeLayout>
 

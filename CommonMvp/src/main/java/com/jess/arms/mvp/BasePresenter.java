@@ -17,18 +17,19 @@ package com.jess.arms.mvp;
 
 import android.app.Activity;
 import android.app.Service;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.OnLifecycleEvent;
-import androidx.fragment.app.Fragment;
-import androidx.core.app.ComponentActivity;
 import android.view.View;
 
 import com.jess.arms.integration.EventBusManager;
 import com.jess.arms.utils.Preconditions;
 import com.trello.rxlifecycle2.RxLifecycle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ComponentActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
@@ -139,7 +140,7 @@ public class BasePresenter<M extends IModel, V extends IView> implements IPresen
 
     /**
      * 将 {@link Disposable} 添加到 {@link CompositeDisposable} 中统一管理
-     * 可在 {@link Activity#onDestroy()} 中使用 {@link #unDispose()} 停止正在执行的 RxJava 任务,避免内存泄漏
+     * 可在 {@link AppCompatActivity#onDestroy()} 中使用 {@link #unDispose()} 停止正在执行的 RxJava 任务,避免内存泄漏
      * 目前框架已使用 {@link RxLifecycle} 避免内存泄漏,此方法作为备用方案
      *
      * @param disposable

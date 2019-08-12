@@ -15,12 +15,10 @@
  */
 package com.jess.arms.utils;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -28,6 +26,8 @@ import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -55,8 +55,8 @@ public class ThirdViewUtil {
     }
 
     public static Unbinder bindTarget(Object target, Object source) {
-        if (source instanceof Activity) {
-            return ButterKnife.bind(target, (Activity) source);
+        if (source instanceof AppCompatActivity) {
+            return ButterKnife.bind(target, (AppCompatActivity) source);
         } else if (source instanceof View) {
             return ButterKnife.bind(target, (View) source);
         } else if (source instanceof Dialog) {

@@ -15,13 +15,14 @@
  */
 package com.jess.arms.integration.cache;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import androidx.fragment.app.Fragment;
 
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.integration.RepositoryManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 /**
  * ================================================
@@ -110,7 +111,7 @@ public interface CacheType {
     };
 
     /**
-     * {@link Activity} 中存储数据的容器
+     * {@link AppCompatActivity} 中存储数据的容器
      */
     CacheType ACTIVITY_CACHE = new CacheType() {
         private static final int MAX_SIZE = 80;

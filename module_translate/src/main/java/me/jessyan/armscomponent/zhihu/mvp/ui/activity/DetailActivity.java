@@ -18,20 +18,39 @@ package me.jessyan.armscomponent.zhihu.mvp.ui.activity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.baidu.translate.ocr.OcrCallback;
+import com.baidu.translate.ocr.OcrClient;
+import com.baidu.translate.ocr.OcrClientFactory;
+import com.baidu.translate.ocr.entity.Language;
+import com.baidu.translate.ocr.entity.OcrResult;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.R2;
 import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
@@ -53,12 +72,16 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-
+@Route(path = RouterHub.TRANSLATE_HOME)
 public class DetailActivity extends BaseActivity<DetailPresenter> implements DetailContract.View {
     @BindView(R2.id.webView)
     WebView mWebView;
     @Inject
     Dialog mDialog;
+
+    Bitmap bitmap;
+
+    OcrClient client;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -68,6 +91,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                 .view(this)
                 .build()
                 .inject(this);
+
     }
 
     @Override
@@ -80,6 +104,42 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
         initWebView();
         loadTitle();
         mPresenter.requestDetailInfo(getIntent().getIntExtra(ZhihuConstants.DETAIL_ID, 0));
+
+        client = OcrClientFactory.create(this, getString(R.string.translate_baidu_appid), getString(R.string.translate_baidu_appkey));
+
+        PictureSelector.create(this)
+                .openGallery(PictureMimeType.ofImage())
+                .compress(true)
+                .forResult(PictureConfig.CHOOSE_REQUEST);
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case PictureConfig.CHOOSE_REQUEST:
+                    // 图片、视频、音频选择结果回调
+                    List<LocalMedia> selectList = PictureSelector.obtainMultipleResult(data);
+                    // 例如 LocalMedia 里面返回三种path
+                    // 1.media.getPath(); 为原图path
+                    // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
+                    // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
+                    // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
+                    if (selectList.size() > 0) {
+                        bitmap = BitmapFactory.decodeFile(selectList.get(0).getCompressPath());
+                    }
+                    client.getOcrResult(Language.EN, Language.ZH, bitmap, new OcrCallback() {
+                        @Override
+                        public void onOcrResult(OcrResult ocrResult) {
+
+                        }
+                    });
+                    break;
+            }
+        }
     }
 
     @Override
@@ -125,11 +185,9 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
     }
 
     private void loadTitle() {
-        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
-        if (title.length() > 10) {
-            title = title.substring(0, 10) + " ...";
-        }
-        setTitle(title);
+//        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
+
+        setTitle("");
     }
 
     @Override

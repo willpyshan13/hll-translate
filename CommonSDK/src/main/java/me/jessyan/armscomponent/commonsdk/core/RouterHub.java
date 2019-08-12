@@ -47,6 +47,8 @@ public interface RouterHub {
     String CHAT = "/chat";//干货集中营组件
     String GOLD = "/gold";//稀土掘金组件
 
+    String TRANSLATE = "/translate";//干货集中营组件
+
     /**
      * 服务组件, 用于给每个组件暴露特有的服务
      */
@@ -69,4 +71,6 @@ public interface RouterHub {
     String TRANSLATE_DETAILACTIVITY = ZHIHU + "/DetailActivity";
 
     String CHAT_DETAILACTIVITY = CHAT + "/DetailActivity";
+
+    String TRANSLATE_HOME = TRANSLATE + "/DetailActivity";
 }

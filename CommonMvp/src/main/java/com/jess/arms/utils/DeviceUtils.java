@@ -16,7 +16,6 @@
 package com.jess.arms.utils;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ClipboardManager;
@@ -47,6 +46,8 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.text.NumberFormat;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * ================================================
@@ -154,7 +155,7 @@ public class DeviceUtils {
      * @param activity
      * @return
      */
-    public static int[] getRealScreenSize(Activity activity) {
+    public static int[] getRealScreenSize(AppCompatActivity activity) {
         int[] size = new int[2];
         int screenWidth = 0, screenHeight = 0;
         WindowManager w = activity.getWindowManager();
@@ -439,7 +440,7 @@ public class DeviceUtils {
         return infos.size() > 0;
     }
 
-    public static void setFullScreen(Activity activity) {
+    public static void setFullScreen(AppCompatActivity activity) {
         WindowManager.LayoutParams params = activity.getWindow()
                 .getAttributes();
         params.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -448,7 +449,7 @@ public class DeviceUtils {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
 
-    public static void cancelFullScreen(Activity activity) {
+    public static void cancelFullScreen(AppCompatActivity activity) {
         WindowManager.LayoutParams params = activity.getWindow()
                 .getAttributes();
         params.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -715,7 +716,7 @@ public class DeviceUtils {
         return sbar;
     }
 
-    public static boolean hasStatusBar(Activity activity) {
+    public static boolean hasStatusBar(AppCompatActivity activity) {
         WindowManager.LayoutParams attrs = activity.getWindow().getAttributes();
         if ((attrs.flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) == WindowManager.LayoutParams.FLAG_FULLSCREEN) {
             return false;
@@ -731,7 +732,7 @@ public class DeviceUtils {
      * @param title
      * @param url
      */
-    public static void showSystemShareOption(Activity context,
+    public static void showSystemShareOption(AppCompatActivity context,
                                              final String title, final String url) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");

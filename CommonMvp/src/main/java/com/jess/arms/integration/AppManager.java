@@ -22,10 +22,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
-import androidx.annotation.Nullable;
-import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.utils.ArmsUtils;
 
@@ -34,6 +33,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Action;
@@ -43,7 +44,7 @@ import static com.jess.arms.base.Platform.DEPENDENCY_SUPPORT_DESIGN;
 
 /**
  * ================================================
- * 用于管理所有 {@link Activity}, 和在前台的 {@link Activity}
+ * 用于管理所有 {@link AppCompatActivity}, 和在前台的 {@link AppCompatActivity}
  *
  * @see <a href="https://github.com/JessYanCoding/MVPArms/wiki#3.11">AppManager wiki 官方文档</a>
  * Created by JessYan on 14/12/2016 13:50
@@ -139,7 +140,7 @@ public final class AppManager {
     }
 
     /**
-     * 让在前台的 {@link Activity}, 使用 {@link Snackbar} 显示文本内容
+     * 让在前台的 {@link AppCompatActivity}, 使用 {@link Snackbar} 显示文本内容
      *
      * @param message
      * @param isLong
@@ -169,7 +170,7 @@ public final class AppManager {
     }
 
     /**
-     * 让在栈顶的 {@link Activity} ,打开指定的 {@link Activity}
+     * 让在栈顶的 {@link AppCompatActivity} ,打开指定的 {@link AppCompatActivity}
      *
      * @param intent
      */
@@ -185,7 +186,7 @@ public final class AppManager {
     }
 
     /**
-     * 让在栈顶的 {@link Activity} ,打开指定的 {@link Activity}
+     * 让在栈顶的 {@link AppCompatActivity} ,打开指定的 {@link AppCompatActivity}
      *
      * @param activityClass
      */
@@ -205,9 +206,9 @@ public final class AppManager {
     }
 
     /**
-     * 将在前台的 {@link Activity} 赋值给 {@code currentActivity}, 注意此方法是在 {@link Activity#onResume} 方法执行时将栈顶的 {@link Activity} 赋值给 {@code currentActivity}
-     * 所以在栈顶的 {@link Activity} 执行 {@link Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 获取的就不是当前栈顶的 {@link Activity}, 可能是上一个 {@link Activity}
-     * 如果在 App 启动第一个 {@link Activity} 执行 {@link Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 则会出现返回为 {@code null} 的情况
+     * 将在前台的 {@link AppCompatActivity} 赋值给 {@code currentActivity}, 注意此方法是在 {@link AppCompatActivity#onResume} 方法执行时将栈顶的 {@link AppCompatActivity} 赋值给 {@code currentActivity}
+     * 所以在栈顶的 {@link AppCompatActivity} 执行 {@link AppCompatActivity#onCreate} 方法时使用 {@link #getCurrentActivity()} 获取的就不是当前栈顶的 {@link AppCompatActivity}, 可能是上一个 {@link AppCompatActivity}
+     * 如果在 App 启动第一个 {@link AppCompatActivity} 执行 {@link AppCompatActivity#onCreate} 方法时使用 {@link #getCurrentActivity()} 则会出现返回为 {@code null} 的情况
      * 想避免这种情况请使用 {@link #getTopActivity()}
      *
      * @param currentActivity
@@ -217,14 +218,14 @@ public final class AppManager {
     }
 
     /**
-     * 获取在前台的 {@link Activity} (保证获取到的 {@link Activity} 正处于可见状态, 即未调用 {@link Activity#onStop()}), 获取的 {@link Activity} 存续时间
-     * 是在 {@link Activity#onStop()} 之前, 所以如果当此 {@link Activity} 调用 {@link Activity#onStop()} 方法之后, 没有其他的 {@link Activity} 回到前台(用户返回桌面或者打开了其他 App 会出现此状况)
+     * 获取在前台的 {@link AppCompatActivity} (保证获取到的 {@link AppCompatActivity} 正处于可见状态, 即未调用 {@link AppCompatActivity#onStop()}), 获取的 {@link AppCompatActivity} 存续时间
+     * 是在 {@link AppCompatActivity#onStop()} 之前, 所以如果当此 {@link AppCompatActivity} 调用 {@link AppCompatActivity#onStop()} 方法之后, 没有其他的 {@link AppCompatActivity} 回到前台(用户返回桌面或者打开了其他 App 会出现此状况)
      * 这时调用 {@link #getCurrentActivity()} 有可能返回 {@code null}, 所以请注意使用场景和 {@link #getTopActivity()} 不一样
      * <p>
      * Example usage:
-     * 使用场景比较适合, 只需要在可见状态的 {@link Activity} 上执行的操作
-     * 如当后台 {@link Service} 执行某个任务时, 需要让前台 {@link Activity} ,做出某种响应操作或其他操作,如弹出 {@link Dialog}, 这时在 {@link Service} 中就可以使用 {@link #getCurrentActivity()}
-     * 如果返回为 {@code null}, 说明没有前台 {@link Activity} (用户返回桌面或者打开了其他 App 会出现此状况), 则不做任何操作, 不为 {@code null}, 则弹出 {@link Dialog}
+     * 使用场景比较适合, 只需要在可见状态的 {@link AppCompatActivity} 上执行的操作
+     * 如当后台 {@link Service} 执行某个任务时, 需要让前台 {@link AppCompatActivity} ,做出某种响应操作或其他操作,如弹出 {@link Dialog}, 这时在 {@link Service} 中就可以使用 {@link #getCurrentActivity()}
+     * 如果返回为 {@code null}, 说明没有前台 {@link AppCompatActivity} (用户返回桌面或者打开了其他 App 会出现此状况), 则不做任何操作, 不为 {@code null}, 则弹出 {@link Dialog}
      *
      * @return
      */
@@ -234,9 +235,9 @@ public final class AppManager {
     }
 
     /**
-     * 获取最近启动的一个 {@link Activity}, 此方法不保证获取到的 {@link Activity} 正处于前台可见状态
-     * 即使 App 进入后台或在这个 {@link Activity} 中打开一个之前已经存在的 {@link Activity}, 这时调用此方法
-     * 还是会返回这个最近启动的 {@link Activity}, 因此基本不会出现 {@code null} 的情况
+     * 获取最近启动的一个 {@link AppCompatActivity}, 此方法不保证获取到的 {@link AppCompatActivity} 正处于前台可见状态
+     * 即使 App 进入后台或在这个 {@link AppCompatActivity} 中打开一个之前已经存在的 {@link AppCompatActivity}, 这时调用此方法
+     * 还是会返回这个最近启动的 {@link AppCompatActivity}, 因此基本不会出现 {@code null} 的情况
      * 比较适合大部分的使用场景, 如 startActivity
      * <p>
      * Tips: mActivityList 容器中的顺序仅仅是 Activity 的创建顺序, 并不能保证和 Activity 任务栈顺序一致
@@ -253,7 +254,7 @@ public final class AppManager {
     }
 
     /**
-     * 返回一个存储所有未销毁的 {@link Activity} 的集合
+     * 返回一个存储所有未销毁的 {@link AppCompatActivity} 的集合
      *
      * @return
      */
@@ -265,7 +266,7 @@ public final class AppManager {
     }
 
     /**
-     * 添加 {@link Activity} 到集合
+     * 添加 {@link AppCompatActivity} 到集合
      */
     public void addActivity(Activity activity) {
         synchronized (AppManager.class) {
@@ -277,7 +278,7 @@ public final class AppManager {
     }
 
     /**
-     * 删除集合里的指定的 {@link Activity} 实例
+     * 删除集合里的指定的 {@link AppCompatActivity} 实例
      *
      * @param {@link Activity}
      */
@@ -294,7 +295,7 @@ public final class AppManager {
     }
 
     /**
-     * 删除集合里的指定位置的 {@link Activity}
+     * 删除集合里的指定位置的 {@link AppCompatActivity}
      *
      * @param location
      */
@@ -312,7 +313,7 @@ public final class AppManager {
     }
 
     /**
-     * 关闭指定的 {@link Activity} class 的所有的实例
+     * 关闭指定的 {@link AppCompatActivity} class 的所有的实例
      *
      * @param activityClass
      */
@@ -335,12 +336,12 @@ public final class AppManager {
     }
 
     /**
-     * 指定的 {@link Activity} 实例是否存活
+     * 指定的 {@link AppCompatActivity} 实例是否存活
      *
      * @param {@link Activity}
      * @return
      */
-    public boolean activityInstanceIsLive(Activity activity) {
+    public boolean activityInstanceIsLive(AppCompatActivity activity) {
         if (mActivityList == null) {
             Timber.tag(TAG).w("mActivityList == null when activityInstanceIsLive(Activity)");
             return false;
@@ -349,7 +350,7 @@ public final class AppManager {
     }
 
     /**
-     * 指定的 {@link Activity} class 是否存活(同一个 {@link Activity} class 可能有多个实例)
+     * 指定的 {@link AppCompatActivity} class 是否存活(同一个 {@link AppCompatActivity} class 可能有多个实例)
      *
      * @param activityClass
      * @return
@@ -368,7 +369,7 @@ public final class AppManager {
     }
 
     /**
-     * 获取指定 {@link Activity} class 的实例,没有则返回 null(同一个 {@link Activity} class 有多个实例,则返回最早创建的实例)
+     * 获取指定 {@link AppCompatActivity} class 的实例,没有则返回 null(同一个 {@link AppCompatActivity} class 有多个实例,则返回最早创建的实例)
      *
      * @param activityClass
      * @return
@@ -387,7 +388,7 @@ public final class AppManager {
     }
 
     /**
-     * 关闭所有 {@link Activity}
+     * 关闭所有 {@link AppCompatActivity}
      */
     public void killAll() {
 //        while (getActivityList().size() != 0) { //此方法只能兼容LinkedList
@@ -404,7 +405,7 @@ public final class AppManager {
     }
 
     /**
-     * 关闭所有 {@link Activity},排除指定的 {@link Activity}
+     * 关闭所有 {@link AppCompatActivity},排除指定的 {@link AppCompatActivity}
      *
      * @param excludeActivityClasses activity class
      */
@@ -425,9 +426,9 @@ public final class AppManager {
     }
 
     /**
-     * 关闭所有 {@link Activity},排除指定的 {@link Activity}
+     * 关闭所有 {@link AppCompatActivity},排除指定的 {@link AppCompatActivity}
      *
-     * @param excludeActivityName {@link Activity} 的完整全路径
+     * @param excludeActivityName {@link AppCompatActivity} 的完整全路径
      */
     public void killAll(String... excludeActivityName) {
         List<String> excludeList = Arrays.asList(excludeActivityName);

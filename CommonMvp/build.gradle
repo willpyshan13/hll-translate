@@ -42,6 +42,7 @@ dependencies {
     api rootProject.ext.dependencies["constraint-layout"]
 
 
+
     //view
     compileOnly rootProject.ext.dependencies["autolayout"]
     api(rootProject.ext.dependencies["butterknife"]) {
@@ -96,10 +97,12 @@ dependencies {
         exclude module: 'okio'
     }
     api rootProject.ext.dependencies["okhttp3"]
-    compileOnly rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide"]
     annotationProcessor(rootProject.ext.dependencies["glide-compiler"]) {
-//        exclude module: 'jsr305'
+        exclude module: 'jsr305'
     }
+
+    compile project(':picture_library')
 
     //tools
     compileOnly rootProject.ext.dependencies["javax.annotation"]
