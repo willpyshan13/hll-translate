@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.util.Log;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.baidu.translate.ocr.OcrCallback;
 import com.baidu.translate.ocr.OcrClient;
@@ -42,6 +43,9 @@ import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -52,7 +56,6 @@ import me.jessyan.armscomponent.commonsdk.utils.RxUtil;
 import me.jessyan.armscomponent.zhihu.R;
 import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
 import me.jessyan.armscomponent.commonsdk.utils.HtmlUtil;
-import me.jessyan.armscomponent.zhihu.di.component.DaggerDetailComponent;
 import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
 import me.jessyan.armscomponent.zhihu.mvp.presenter.DetailPresenter;
@@ -80,12 +83,12 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerDetailComponent //如找不到该类,请编译一下项目
-                .builder()
-                .appComponent(appComponent)
-                .view(this)
-                .build()
-                .inject(this);
+//        DaggerDetailComponent //如找不到该类,请编译一下项目
+//                .builder()
+//                .appComponent(appComponent)
+//                .view(this)
+//                .build()
+//                .inject(this);
 
     }
 
@@ -97,8 +100,6 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         loadTitle();
-        mPresenter.requestDetailInfo(getIntent().getIntExtra(ZhihuConstants.DETAIL_ID, 0));
-
         client = OcrClientFactory.create(this, getString(R.string.translate_baidu_appid), getString(R.string.translate_baidu_appkey));
         PictureSelector.create(DetailActivity.this)
                 .openCamera(PictureMimeType.ofImage())
@@ -120,59 +121,62 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
                     if (selectList.size() > 0) {
-                        bitmap = BitmapFactory.decodeFile(selectList.get(0).getPath());
-                    }
-                    client.getOcrResult(Language.EN, Language.ZH, bitmap, new OcrCallback() {
-                        @Override
-                        public void onOcrResult(OcrResult ocrResult) {
-                            Log.d("pengyushan--", "onOcrResult(DetailActivity.java:137)-->>");
+                        bitmap = BitmapFactory.decodeFile(selectList.get(0).getCompressPath());
+                        if (bitmap != null) {
+                            client.getOcrResult(Language.EN, Language.ZH, bitmap, new OcrCallback() {
+                                @Override
+                                public void onOcrResult(OcrResult ocrResult) {
+                                    Log.d("pengyushan--", "onOcrResult(DetailActivity.java:137)-->>" + ocrResult.getErrorMsg());
 
+                                }
+                            });
                         }
-                    });
-                    break;
+                    }
+
+                        break;
+                    }
             }
         }
-    }
 
-    @Override
-    public void showLoading() {
-        mDialog.show();
-    }
+        @Override
+        public void showLoading () {
+            mDialog.show();
+        }
 
-    @Override
-    public void hideLoading() {
-        mDialog.dismiss();
-    }
+        @Override
+        public void hideLoading () {
+            mDialog.dismiss();
+        }
 
-    @Override
-    public void showMessage(@NonNull String message) {
-        checkNotNull(message);
-        ArmsUtils.snackbarText(message);
-    }
+        @Override
+        public void showMessage (@NonNull String message){
+            checkNotNull(message);
+            ArmsUtils.snackbarText(message);
+        }
 
-    @Override
-    public void launchActivity(@NonNull Intent intent) {
-        checkNotNull(intent);
-        ArmsUtils.startActivity(intent);
-    }
+        @Override
+        public void launchActivity (@NonNull Intent intent){
+            checkNotNull(intent);
+            ArmsUtils.startActivity(intent);
+        }
 
-    @Override
-    public void killMyself() {
-        finish();
-    }
+        @Override
+        public void killMyself () {
+            finish();
+        }
 
-    private void loadTitle() {
+        private void loadTitle () {
 //        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
 
-        setTitle("");
-    }
+            setTitle("");
+        }
 
-    @Override
-    public void shonContent(ZhihuDetailBean bean) {
-    }
+        @Override
+        public void shonContent (ZhihuDetailBean bean){
+        }
 
-    @Override
-    public Activity getActivity() {
-        return this;
+        @Override
+        public Activity getActivity () {
+            return this;
+        }
     }
-}

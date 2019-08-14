@@ -7,11 +7,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <application>
         <activity
-            android:name=".mvp.ui.activity.ZhihuHomeActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/public_name_zhihu"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".mvp.ui.activity.DetailActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"/>

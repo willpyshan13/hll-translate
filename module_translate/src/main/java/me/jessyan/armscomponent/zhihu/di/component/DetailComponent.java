@@ -28,6 +28,7 @@ import me.jessyan.armscomponent.zhihu.mvp.ui.activity.DetailActivity;
  * ================================================
  * 展示 Component 的用法
  *
+ * @author will
  * @see <a href="https://github.com/JessYanCoding/MVPArms/wiki#2.4.6">Component wiki 官方文档</a>
  * Created by JessYan on 25/04/2018 11:17
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>

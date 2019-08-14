@@ -23,7 +23,6 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.contract.ZhihuHomeContract;
 import me.jessyan.armscomponent.zhihu.mvp.model.api.service.ZhihuService;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
@@ -39,18 +38,13 @@ import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
  * ================================================
  */
 @ActivityScope
-public class ZhihuModel extends BaseModel implements ZhihuHomeContract.Model, DetailContract.Model {
+public class ZhihuModel extends BaseModel implements DetailContract.Model {
 
     @Inject
     public ZhihuModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
     }
 
-    @Override
-    public Observable<DailyListBean> getDailyList(){
-        return mRepositoryManager.obtainRetrofitService(ZhihuService.class)
-                .getDailyList();
-    }
 
     @Override
     public Observable<ZhihuDetailBean> getDetailInfo(int id) {
