@@ -15,6 +15,7 @@
  */
 package me.jessyan.armscomponent.zhihu.mvp.ui.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -25,10 +26,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
+import android.util.Log;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.baidu.translate.ocr.OcrCallback;
 import com.baidu.translate.ocr.OcrClient;
@@ -42,17 +40,16 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
-
-import org.apache.commons.lang3.StringUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.commonsdk.utils.RxUtil;
 import me.jessyan.armscomponent.zhihu.R;
-import me.jessyan.armscomponent.zhihu.R2;
 import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
 import me.jessyan.armscomponent.commonsdk.utils.HtmlUtil;
 import me.jessyan.armscomponent.zhihu.di.component.DaggerDetailComponent;
@@ -74,8 +71,6 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  */
 @Route(path = RouterHub.TRANSLATE_HOME)
 public class DetailActivity extends BaseActivity<DetailPresenter> implements DetailContract.View {
-    @BindView(R2.id.webView)
-    WebView mWebView;
     @Inject
     Dialog mDialog;
 
@@ -101,18 +96,14 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        initWebView();
         loadTitle();
         mPresenter.requestDetailInfo(getIntent().getIntExtra(ZhihuConstants.DETAIL_ID, 0));
 
         client = OcrClientFactory.create(this, getString(R.string.translate_baidu_appid), getString(R.string.translate_baidu_appkey));
-
-        PictureSelector.create(this)
-                .openGallery(PictureMimeType.ofImage())
+        PictureSelector.create(DetailActivity.this)
+                .openCamera(PictureMimeType.ofImage())
                 .compress(true)
                 .forResult(PictureConfig.CHOOSE_REQUEST);
-
-
     }
 
     @Override
@@ -129,11 +120,12 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
                     if (selectList.size() > 0) {
-                        bitmap = BitmapFactory.decodeFile(selectList.get(0).getCompressPath());
+                        bitmap = BitmapFactory.decodeFile(selectList.get(0).getPath());
                     }
                     client.getOcrResult(Language.EN, Language.ZH, bitmap, new OcrCallback() {
                         @Override
                         public void onOcrResult(OcrResult ocrResult) {
+                            Log.d("pengyushan--", "onOcrResult(DetailActivity.java:137)-->>");
 
                         }
                     });
@@ -169,21 +161,6 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
         finish();
     }
 
-    private void initWebView() {
-        WebSettings settings = mWebView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        settings.setSupportZoom(true);
-        mWebView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
-    }
-
     private void loadTitle() {
 //        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
 
@@ -192,8 +169,6 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     public void shonContent(ZhihuDetailBean bean) {
-        String htmlData = HtmlUtil.createHtmlData(bean.getBody(), bean.getCss(), bean.getJs());
-        mWebView.loadData(htmlData, HtmlUtil.MIME_TYPE, ZhihuConstants.ENCODING);
     }
 
     @Override
