@@ -48,11 +48,6 @@ android {
         disable "ResourceType"
         abortOnError false
     }
-
-    packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
-        exclude 'META-INF/xxx'
-    }
 }
 
 dependencies {

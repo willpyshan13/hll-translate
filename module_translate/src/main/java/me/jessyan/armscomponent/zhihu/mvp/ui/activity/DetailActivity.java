@@ -15,7 +15,6 @@
  */
 package me.jessyan.armscomponent.zhihu.mvp.ui.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -24,15 +23,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.util.Log;
-import android.view.TextureView;
-import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.baidu.translate.ocr.OcrCallback;
@@ -50,23 +46,13 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.immersive.LightStatusBarUtils;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.functions.Consumer;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
-import me.jessyan.armscomponent.commonsdk.utils.RxUtil;
 import me.jessyan.armscomponent.widget.TextImageView;
 import me.jessyan.armscomponent.zhihu.R;
-import me.jessyan.armscomponent.zhihu.app.ZhihuConstants;
-import me.jessyan.armscomponent.commonsdk.utils.HtmlUtil;
 import me.jessyan.armscomponent.zhihu.di.component.DaggerDetailComponent;
 import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
 import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;

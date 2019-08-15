@@ -40,14 +40,12 @@ package me.jessyan.armscomponent.commonsdk.core;
  */
 public interface RouterHub {
     /**
-     * 组名
+     * 组名宿主 App 组件
      */
-    String APP = "/app";//宿主 App 组件
-    String ZHIHU = "/zhihu";//知乎组件
-    String CHAT = "/chat";//干货集中营组件
-    String GOLD = "/gold";//稀土掘金组件
-
-    String TRANSLATE = "/translate";//干货集中营组件
+    String APP = "/app";
+    //翻译组件
+    String TRANSLATE = "/translate";
+    String LAUNCHER = "/launcher";
 
     /**
      * 服务组件, 用于给每个组件暴露特有的服务
@@ -61,16 +59,7 @@ public interface RouterHub {
     String APP_SPLASHACTIVITY = APP + "/SplashActivity";
     String APP_MAINACTIVITY = APP + "/MainActivity";
 
-
-    /**
-     * 知乎分组
-     */
-    String ZHIHU_SERVICE_ZHIHUINFOSERVICE = ZHIHU + SERVICE + "/ZhihuInfoService";
-
-    String TRANSLATE_HOMEACTIVITY = ZHIHU + "/HomeActivity";
-    String TRANSLATE_DETAILACTIVITY = ZHIHU + "/DetailActivity";
-
-    String CHAT_DETAILACTIVITY = CHAT + "/DetailActivity";
+    String TRANSLATE_DETAILACTIVITY = LAUNCHER + "/DetailActivity";
 
     String TRANSLATE_HOME = TRANSLATE + "/DetailActivity";
 }

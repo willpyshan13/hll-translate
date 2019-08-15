@@ -54,9 +54,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bt_gold)
     Button mGoldButton;
 
-    @Autowired(name = RouterHub.ZHIHU_SERVICE_ZHIHUINFOSERVICE)
-    ZhihuInfoService mZhihuInfoService;
-
     private long mPressedTime;
 
     @Override
@@ -73,17 +70,8 @@ public class MainActivity extends BaseActivity {
     public void initData(@Nullable Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
         //这里想展示组件向外提供服务的功能, 模拟下组件向宿主提供一些必要的信息, 这里为了简单就直接返回本地数据不请求网络了
-        loadZhihuInfo();
     }
 
-    private void loadZhihuInfo() {
-        //当非集成调试阶段, 宿主 App 由于没有依赖其他组件, 所以使用不了对应组件提供的服务
-        if (mZhihuInfoService == null) {
-            mZhihuButton.setEnabled(false);
-            return;
-        }
-        mZhihuButton.setText(mZhihuInfoService.getInfo().getName());
-    }
 
     @Override
     public void onBackPressed() {
