@@ -21,7 +21,6 @@ import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jess.arms.base.BaseActivity;
@@ -33,27 +32,41 @@ import butterknife.OnClick;
 import me.jessyan.armscomponent.app.R;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.commonsdk.utils.Utils;
-import me.jessyan.armscomponent.commonservice.zhihu.service.ZhihuInfoService;
+
 
 /**
- * ================================================
- * 宿主 App 的主页
+ * Desc:宿主主页
+ * <p>
+ * Date: 2019-08-15
+ * Copyright: Copyright (c) 2018-2019
+ * Company: @
+ * Updater:
+ * Update Time:
+ * Update Comments:
  *
- * @see <a href="https://github.com/JessYanCoding/ArmsComponent/wiki">ArmsComponent wiki 官方文档</a>
- * Created by JessYan on 19/04/2018 16:10
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
- * <a href="https://github.com/JessYanCoding">Follow me</a>
- * ================================================
+ * @Author: [pengysh]
  */
 @Route(path = RouterHub.APP_MAINACTIVITY)
 public class MainActivity extends BaseActivity {
+    /**
+     *
+     */
     @BindView(R.id.bt_zhihu)
     Button mZhihuButton;
+    /**
+     *
+     */
     @BindView(R.id.bt_gank)
     Button mGankButton;
+    /**
+     *
+     */
     @BindView(R.id.bt_gold)
     Button mGoldButton;
 
+    /**
+     *
+     */
     private long mPressedTime;
 
     @Override
@@ -90,19 +103,8 @@ public class MainActivity extends BaseActivity {
     /**
      * 这里注意下在组件的页面中(使用了 R2 的页面)使用 {@link butterknife.OnClick} 会有概率出现 id 不正确的问题, 使用以下方式解决
      * <pre>
-     * @OnClick({R2.id.button1, R2.id.button2})
-     * public void Onclick(View view){
-     *      if (view.getId() == R.id.button1){
-     *          ...
-     *      } else if(view.getId() == R.id.button2){
-     *          ...
-     *      }
-     * }
-     * </pre>
-     * <p>
-     * 在注解上使用 R2, 下面使用 R, 并且使用 {@code if else}, 替代 {@code switch}
-     *
      * @param view
+     * @OnClick({R2.id.button1, R2.id.button2 }) public void Onclick(View view){      if (view.getId() == R.id.button1){          ...      } else if(view.getId() == R.id.button2){          ...      } } </pre> <p> 在注解上使用 R2, 下面使用 R, 并且使用 {@code if else}, 替代 {@code switch}
      */
     @OnClick({R.id.bt_zhihu, R.id.bt_gank, R.id.bt_gold})
     public void onClick(View view) {

@@ -46,6 +46,7 @@ public interface RouterHub {
     //翻译组件
     String TRANSLATE = "/translate";
     String LAUNCHER = "/launcher";
+    String SETTINGS = "/setting";
 
     /**
      * 服务组件, 用于给每个组件暴露特有的服务
@@ -62,4 +63,6 @@ public interface RouterHub {
     String TRANSLATE_DETAILACTIVITY = LAUNCHER + "/DetailActivity";
 
     String TRANSLATE_HOME = TRANSLATE + "/DetailActivity";
+
+    String SETTING_HOME = SETTINGS + "/SettingActivity";
 }

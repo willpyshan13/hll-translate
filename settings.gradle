@@ -1,1 +1,1 @@
-include ':app', ':CommonSDK', ':CommonService', ':CommonRes', ':module_translate', ':module_launcher', ':CommonMvp', ':CommonImageloader-glide', ':picture_library', ':ucrop'
+include ':app', ':CommonSDK', ':CommonRes', ':module_translate', ':module_launcher', ':CommonMvp', ':CommonImageloader-glide', ':library_picture', ':library_ucrop', ':module_user_center'

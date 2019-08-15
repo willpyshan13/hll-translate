@@ -102,7 +102,7 @@ dependencies {
         exclude module: 'jsr305'
     }
 
-    compile project(':picture_library')
+    compile project(':library_picture')
 
     //tools
     compileOnly rootProject.ext.dependencies["javax.annotation"]
