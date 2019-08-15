@@ -190,7 +190,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
     private void loadTitle() {
 //        String title = getIntent().getStringExtra(ZhihuConstants.DETAIL_TITLE);
 
-        setTitle("");
+        setTitle("hello");
     }
 
     @Override

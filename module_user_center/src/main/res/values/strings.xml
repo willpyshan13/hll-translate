@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">module_user_center</string>
+    <string name="setting_home" translatable="false">Settings</string>
 </resources>

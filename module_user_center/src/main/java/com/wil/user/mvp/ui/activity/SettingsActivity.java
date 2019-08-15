@@ -49,7 +49,7 @@ public class SettingsActivity extends BaseActivity<SettingsPresenter> implements
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.activity_settings; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.setting_activity_home; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
     @Override

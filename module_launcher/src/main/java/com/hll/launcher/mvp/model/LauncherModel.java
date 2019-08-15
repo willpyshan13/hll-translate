@@ -33,6 +33,5 @@ public class LauncherModel extends BaseModel implements LauncherContract.Model{
 
     @Override
     public void getDetailInfo(int id) {
-
     }
 }

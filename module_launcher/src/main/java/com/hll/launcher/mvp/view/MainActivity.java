@@ -106,6 +106,16 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
         public void onBindViewHolder(@NonNull MainHolder holder, int position) {
             holder.title.setText(itemIndex[position]);
             holder.headimage.setBackgroundResource(itemImage[position]);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (position ==6){
+                        Utils.navigation(MainActivity.this, RouterHub.SETTING_HOME);
+                    }else if(position ==1){
+                        Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
+                    }
+                }
+            });
         }
 
         @Override
@@ -122,12 +132,6 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
                 super(itemView);
                 headimage = itemView.findViewById(R.id.launcher_main_item_image);
                 title = itemView.findViewById(R.id.launcher_main_item_tv);
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
-                    }
-                });
             }
         }
     }
