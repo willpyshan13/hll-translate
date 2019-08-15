@@ -57,7 +57,7 @@
 
 
     <!--默认样式-->
-    <style name="picture.default.style" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="picture.default.style" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!--标题栏背景色-->
         <item name="colorPrimary">@color/bar_grey</item>
