@@ -2,8 +2,9 @@ import java.text.SimpleDateFormat
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
-buildscript {
-
+buildscript { 
+    ext.kotlin_version = '1.3.41'
+ 
     repositories {
         google()
         jcenter()
@@ -19,7 +20,7 @@ buildscript {
 //        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
         //Gradle Bintray Plugin
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
-    }
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
 }
 
 allprojects {
@@ -68,4 +69,3 @@ static def getBuildTime() {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd")
     return simpleDateFormat.format(date)
 }
-

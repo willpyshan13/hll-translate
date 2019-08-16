@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.app;
+package me.jessyan.armscomponent.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -29,7 +29,7 @@ import com.squareup.leakcanary.RefWatcher;
 
 import java.util.List;
 
-import me.jessyan.armscomponent.zhihu.BuildConfig;
+import me.jessyan.armscomponent.BuildConfig;
 
 /**
  * ================================================

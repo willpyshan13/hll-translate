@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.app;
+package me.jessyan.armscomponent.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -25,11 +25,11 @@ import com.jess.arms.utils.ArmsUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-import me.jessyan.armscomponent.zhihu.BuildConfig;
+import me.jessyan.armscomponent.BuildConfig;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 
-import static me.jessyan.armscomponent.zhihu.mvp.model.api.Api.ZHIHU_DOMAIN;
-import static me.jessyan.armscomponent.zhihu.mvp.model.api.Api.ZHIHU_DOMAIN_NAME;
+import static me.jessyan.armscomponent.mvp.model.api.Api.ZHIHU_DOMAIN;
+import static me.jessyan.armscomponent.mvp.model.api.Api.ZHIHU_DOMAIN_NAME;
 
 /**
  * ================================================

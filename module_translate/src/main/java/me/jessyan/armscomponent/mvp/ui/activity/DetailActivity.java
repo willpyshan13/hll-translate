@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.ui.activity;
+package me.jessyan.armscomponent.mvp.ui.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -45,18 +45,18 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
-import com.luck.picture.lib.immersive.LightStatusBarUtils;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
+import me.jessyan.armscomponent.R;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.di.component.DaggerDetailComponent;
 import me.jessyan.armscomponent.widget.TextImageView;
-import me.jessyan.armscomponent.zhihu.R;
-import me.jessyan.armscomponent.zhihu.di.component.DaggerDetailComponent;
-import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
-import me.jessyan.armscomponent.zhihu.mvp.presenter.DetailPresenter;
+import me.jessyan.armscomponent.mvp.contract.DetailContract;
+import me.jessyan.armscomponent.mvp.model.entity.ZhihuDetailBean;
+import me.jessyan.armscomponent.mvp.presenter.DetailPresenter;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -93,7 +93,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        LightStatusBarUtils.setLightStatusBar(this, false, false, true, false);
+        ArmsUtils.statuInScreen(this);
         return R.layout.translate_activity_detail;
     }
 
@@ -134,10 +134,14 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                                 }
                             });
                         }
+                    }else {
+                        finish();
                     }
 
                     break;
             }
+        }else {
+            finish();
         }
     }
 

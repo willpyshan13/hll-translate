@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.presenter;
+package me.jessyan.armscomponent.mvp.presenter;
 
 import android.app.Application;
 
@@ -27,8 +27,8 @@ import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
+import me.jessyan.armscomponent.mvp.contract.DetailContract;
+import me.jessyan.armscomponent.mvp.model.entity.ZhihuDetailBean;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;

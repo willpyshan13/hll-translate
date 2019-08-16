@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.contract;
+package me.jessyan.armscomponent.mvp.contract;
 
 import android.app.Activity;
 
@@ -21,7 +21,7 @@ import com.jess.arms.mvp.IModel;
 import com.jess.arms.mvp.IView;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
+import me.jessyan.armscomponent.mvp.model.entity.ZhihuDetailBean;
 
 /**
  * ================================================
