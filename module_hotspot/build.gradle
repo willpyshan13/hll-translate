@@ -1,11 +1,14 @@
 apply from:"../common_component_build.gradle"
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(":CommonRes")
 //    api rootProject.ext.dependencies["paginate"]
     implementation rootProject.ext.dependencies["switchbutton"]
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    //tools
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
 }

@@ -53,7 +53,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/public_dp30"
-        android:checked="true"
         app:kswBackColor="@drawable/switch_button_back_color"
         app:kswFadeBack="true"
         app:kswThumbColor="@color/white"

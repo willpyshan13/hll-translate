@@ -1,8 +1,9 @@
-package me.jessyan.armscomponent.hotspot.constant;
+package me.jessyan.armscomponent.hotspot.constant
 
 /**
  * Desc:个人热点常量类
- * <p>
+ *
+ *
  * Date: 2019/8/16
  * Copyright: Copyright (c) 2010-2019
  * Company: @微微科技有限公司
@@ -12,16 +13,16 @@ package me.jessyan.armscomponent.hotspot.constant;
  *
  * @Author: [zhuanghongzhan]
  */
-public class HotSpotConstant {
+object HotSpotConstant {
 
     /**
      * 热点名称输入框
      */
-    public static final int DIALOG_INPUT_NAME = 1;
+    val DIALOG_INPUT_NAME = 1
 
     /**
      * 热点密码输入框
      */
-    public static final int DIALOG_INPUT_PWD = 2;
+    val DIALOG_INPUT_PWD = 2
 
 }
