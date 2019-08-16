@@ -26,8 +26,10 @@ public class LauncherConstant {
      * @Author: [pengyushan]
      */
     public static class LauncherType {
-        public static int LAUNCHER_TRANSLATE = 2;
-        public static int LAUNCHER_Setting = 6;
-        public static int LAUNCHER_HotSpot = 3;
+        public static int LAUNCHER_TRANSLATE = 1;
+        public static int LAUNCHER_Setting = 7;
+        public static int LAUNCHER_HotSpot = 2;
+        public static int LAUNCHER_FlowCharge = 6;
+        public static int LAUNCHER_Currency = 4;
     }
 }

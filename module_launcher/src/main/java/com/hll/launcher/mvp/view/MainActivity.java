@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import com.hll.launcher.constant.LauncherConstant;
 import com.hll.launcher.di.component.DaggerLauncherComponent;
 import com.hll.launcher.mvp.contract.LauncherContract;
 import com.hll.launcher.mvp.presenter.LauncherPresenter;
+import com.hll.launcher.mvp.ui.activity.CurrencyConvertActivity;
+import com.hll.launcher.mvp.ui.activity.FlowChargeActivity;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 
@@ -117,6 +120,10 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
                         Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
                     }else if(position==LauncherConstant.LauncherType.LAUNCHER_HotSpot){
                         Utils.navigation(MainActivity.this, RouterHub.HOTSPOT_HOME);
+                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_FlowCharge){
+                        startActivity(new Intent(MainActivity.this, FlowChargeActivity.class));
+                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_Currency){
+                        startActivity(new Intent(MainActivity.this, CurrencyConvertActivity.class));
                     }
                 }
             });

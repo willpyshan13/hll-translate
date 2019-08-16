@@ -68,4 +68,6 @@ public interface RouterHub {
     String SETTING_HOME = SETTINGS + "/SettingActivity";
 
     String HOTSPOT_HOME=HOTSPOT+"/HotspotActivity";
+
+    String LAUNCHER_FLOW=LAUNCHER+"/FlowActivity";
 }
