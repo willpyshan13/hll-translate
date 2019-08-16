@@ -73,6 +73,7 @@ ext {
             "vlayout"                  : "com.alibaba.android:vlayout:1.1.0@aar",
             "lottie"                   : "com.airbnb.android:lottie:2.7.0",
             "autosize"                 : "me.jessyan:autosize:1.1.1",
+            "switchbutton"             : "com.kyleduo.switchbutton:library:2.0.0",
 
             //rx1
             "rxandroid"                : "io.reactivex:rxandroid:1.2.1",

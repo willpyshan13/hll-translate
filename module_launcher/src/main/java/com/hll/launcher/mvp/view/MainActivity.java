@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,6 +114,8 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
                         Utils.navigation(MainActivity.this, RouterHub.SETTING_HOME);
                     }else if(position ==1){
                         Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
+                    }else if(position==2){
+                        Utils.navigation(MainActivity.this, RouterHub.HOTSPOT_HOME);
                     }
                 }
             });
