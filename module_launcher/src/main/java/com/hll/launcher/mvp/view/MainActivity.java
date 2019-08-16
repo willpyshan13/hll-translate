@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hll.launcher.R;
 import com.hll.launcher.R2;
+import com.hll.launcher.constant.LauncherConstant;
 import com.hll.launcher.di.component.DaggerLauncherComponent;
 import com.hll.launcher.mvp.contract.LauncherContract;
 import com.hll.launcher.mvp.presenter.LauncherPresenter;
@@ -110,11 +111,11 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (position ==6){
+                    if (position == LauncherConstant.LauncherType.LAUNCHER_Setting){
                         Utils.navigation(MainActivity.this, RouterHub.SETTING_HOME);
-                    }else if(position ==1){
+                    }else if(position ==LauncherConstant.LauncherType.LAUNCHER_TRANSLATE){
                         Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
-                    }else if(position==2){
+                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_HotSpot){
                         Utils.navigation(MainActivity.this, RouterHub.HOTSPOT_HOME);
                     }
                 }
