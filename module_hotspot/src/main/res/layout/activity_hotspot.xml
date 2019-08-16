@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/public_dp15"
         android:text="@string/hotspot"
-        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/public_sp23"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,16 +41,18 @@
         android:layout_marginLeft="@dimen/public_dp40"
         android:layout_marginTop="@dimen/public_dp40"
         android:text="@string/hotspot"
-        android:textSize="@dimen/public_sp20"
+        android:textColor="@color/black"
+        android:textSize="@dimen/public_sp18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hotspot_tv_title"
         />
 
 
     <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/hotspot_item_hotspot_sw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/public_dp40"
+        android:layout_marginRight="@dimen/public_dp30"
         android:checked="true"
         app:kswBackColor="@drawable/switch_button_back_color"
         app:kswFadeBack="true"
@@ -57,6 +60,114 @@
         app:layout_constraintBottom_toBottomOf="@id/hotspot_item_hotspot_tv_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/hotspot_item_hotspot_tv_label"
+        />
+
+
+    <View
+        android:id="@+id/hotspot_item_divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_dp1"
+        android:layout_marginLeft="@dimen/public_dp40"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:layout_marginBottom="@dimen/public_dp15"
+        android:background="@drawable/divider_line"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_item_hotspot_tv_label"
+        app:layout_goneMarginLeft="@dimen/public_dp40"
+        />
+
+    <TextView
+        android:id="@+id/hotspot_item_name_tv_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:text="热点名称"
+        android:textColor="@color/black"
+        android:textSize="@dimen/public_sp18"
+        app:layout_constraintStart_toStartOf="@id/hotspot_item_hotspot_tv_label"
+        app:layout_constraintTop_toBottomOf="@id/hotspot_item_divider_1"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/hotspot_icon_more"
+        android:ellipsize="end"
+        android:maxWidth="@dimen/public_dp150"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="热点1234567"
+        android:textSize="@dimen/public_sp18"
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_item_name_tv_label"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_item_hotspot_sw"
+        app:layout_constraintTop_toTopOf="@+id/hotspot_item_name_tv_label"
+        />
+
+
+    <View
+        android:id="@+id/hotspot_item_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_dp1"
+        android:layout_marginLeft="@dimen/public_dp40"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:layout_marginBottom="@dimen/public_dp15"
+        android:background="@drawable/divider_line"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_item_name_tv_label"
+        />
+
+
+    <TextView
+        android:id="@+id/hotspot_item_pwd_tv_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:text="密码"
+        android:textColor="@color/black"
+        android:textSize="@dimen/public_sp18"
+        app:layout_constraintStart_toStartOf="@id/hotspot_item_hotspot_tv_label"
+        app:layout_constraintTop_toBottomOf="@id/hotspot_item_divider_2"
+        />
+
+
+    <TextView
+        android:id="@+id/hotspot_item_pwd_tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/hotspot_icon_more"
+        android:ellipsize="end"
+        android:maxWidth="@dimen/public_dp150"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="********"
+        android:textSize="@dimen/public_sp18"
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_item_pwd_tv_label"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_item_hotspot_sw"
+        app:layout_constraintTop_toTopOf="@+id/hotspot_item_pwd_tv_label"
+        />
+
+
+    <View
+        android:id="@+id/hotspot_item_divider_3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_dp1"
+        android:layout_marginLeft="@dimen/public_dp40"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:layout_marginBottom="@dimen/public_dp15"
+        android:background="@drawable/divider_line"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_item_pwd_tv_label"
+        />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/public_dp15"
+        android:text="现在可被发现名为热点1234567的共享网络"
+        android:textColor="@color/black"
+        android:textSize="@dimen/public_sp15"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_item_hotspot_sw"
+        app:layout_constraintStart_toStartOf="@+id/hotspot_item_hotspot_tv_label"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_item_divider_3"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
