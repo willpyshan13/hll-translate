@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.model.api.service;
+package me.jessyan.armscomponent.mvp.model.api.service;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
+import me.jessyan.armscomponent.mvp.model.entity.DailyListBean;
+import me.jessyan.armscomponent.mvp.model.entity.ZhihuDetailBean;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
 
-import static me.jessyan.armscomponent.zhihu.mvp.model.api.Api.ZHIHU_DOMAIN_NAME;
+import static me.jessyan.armscomponent.mvp.model.api.Api.ZHIHU_DOMAIN_NAME;
 import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADER;
 
 /**

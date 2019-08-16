@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.di.module;
+package me.jessyan.armscomponent.di.module;
 
 import android.app.Dialog;
 
@@ -23,8 +23,8 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import me.jessyan.armscomponent.commonres.dialog.ProgresDialog;
-import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.ZhihuModel;
+import me.jessyan.armscomponent.mvp.contract.DetailContract;
+import me.jessyan.armscomponent.mvp.model.ZhihuModel;
 
 /**
  * ================================================

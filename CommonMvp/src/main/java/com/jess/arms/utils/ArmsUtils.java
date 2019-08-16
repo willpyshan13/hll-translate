@@ -15,6 +15,7 @@
  */
 package com.jess.arms.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -202,7 +203,7 @@ public class ArmsUtils {
      * @param <T>
      * @return
      */
-    public static <T extends View> T findViewByName(Context context, AppCompatActivity activity, String viewName) {
+    public static <T extends View> T findViewByName(Context context, Activity activity, String viewName) {
         int id = getResources(context).getIdentifier(viewName, "id", context.getPackageName());
         T v = (T) activity.findViewById(id);
         return v;

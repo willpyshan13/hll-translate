@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.jessyan.armscomponent.zhihu">
+    package="me.jessyan.armscomponent">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -41,10 +41,10 @@
         信息, 这样即可重用代码, 又可以允许每个组件可自行管理自己独有的配置信息, 如果业务组件没有独有的配置信息则只需要
         声明 CommonSDK 的 ConfigModule -->
         <meta-data
-            android:name="me.jessyan.armscomponent.commonsdk.core.GlobalConfiguration"
+            android:name=".commonsdk.core.GlobalConfiguration"
             android:value="ConfigModule" />
         <meta-data
-            android:name="me.jessyan.armscomponent.zhihu.app.GlobalConfiguration"
+            android:name=".app.GlobalConfiguration"
             android:value="ConfigModule" />
     </application>
 

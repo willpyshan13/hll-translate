@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.jessyan.armscomponent.zhihu.mvp.model;
+package me.jessyan.armscomponent.mvp.model;
 
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
@@ -22,10 +22,9 @@ import com.jess.arms.mvp.BaseModel;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import me.jessyan.armscomponent.zhihu.mvp.contract.DetailContract;
-import me.jessyan.armscomponent.zhihu.mvp.model.api.service.ZhihuService;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.DailyListBean;
-import me.jessyan.armscomponent.zhihu.mvp.model.entity.ZhihuDetailBean;
+import me.jessyan.armscomponent.mvp.contract.DetailContract;
+import me.jessyan.armscomponent.mvp.model.api.service.ZhihuService;
+import me.jessyan.armscomponent.mvp.model.entity.ZhihuDetailBean;
 
 /**
  * ================================================
