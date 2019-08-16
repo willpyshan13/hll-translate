@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">modelu_hotspot</string>
     <string name="hotspot">个人热点</string>
+    <string name="hotspot_name">热点名称</string>
+    <string name="hotspot_pwd">密码</string>
+    <string name="hotspot_info">现在可被发现名为热点1234567的共享网络</string>
 </resources>
