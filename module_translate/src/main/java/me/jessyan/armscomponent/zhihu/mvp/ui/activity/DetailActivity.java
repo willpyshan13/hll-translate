@@ -93,7 +93,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        LightStatusBarUtils.setLightStatusBar(this, false, false, true, false);
+        ArmsUtils.statuInScreen(this);
         return R.layout.translate_activity_detail;
     }
 
@@ -134,6 +134,8 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                                 }
                             });
                         }
+                    }else {
+                        finish();
                     }
 
                     break;

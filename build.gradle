@@ -2,8 +2,7 @@ import java.text.SimpleDateFormat
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
-buildscript {
-
+buildscript { 
     repositories {
         google()
         jcenter()
@@ -68,4 +67,3 @@ static def getBuildTime() {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd")
     return simpleDateFormat.format(date)
 }
-
