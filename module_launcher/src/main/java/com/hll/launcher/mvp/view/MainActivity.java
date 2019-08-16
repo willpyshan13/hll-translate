@@ -124,6 +124,8 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
                         startActivity(new Intent(MainActivity.this, FlowChargeActivity.class));
                     }else if(position==LauncherConstant.LauncherType.LAUNCHER_Currency){
                         startActivity(new Intent(MainActivity.this, CurrencyConvertActivity.class));
+                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_Emergency){
+                        Utils.navigation(MainActivity.this, RouterHub.LAUNCHER_EMERGENCY);
                     }
                 }
             });

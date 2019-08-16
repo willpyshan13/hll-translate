@@ -70,4 +70,5 @@ public interface RouterHub {
     String HOTSPOT_HOME=HOTSPOT+"/HotspotActivity";
 
     String LAUNCHER_FLOW=LAUNCHER+"/FlowActivity";
+    String LAUNCHER_EMERGENCY=LAUNCHER+"/EmergencyActivity";
 }

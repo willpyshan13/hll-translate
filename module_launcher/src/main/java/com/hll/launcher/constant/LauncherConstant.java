@@ -31,5 +31,6 @@ public class LauncherConstant {
         public static int LAUNCHER_HotSpot = 2;
         public static int LAUNCHER_FlowCharge = 6;
         public static int LAUNCHER_Currency = 4;
+        public static int LAUNCHER_Emergency = 5;
     }
 }
