@@ -127,5 +127,8 @@ ext {
             "canary-debug"             : "com.squareup.leakcanary:leakcanary-android:${version["canarySdkVersion"]}",
             "canary-release"           : "com.squareup.leakcanary:leakcanary-android-no-op:${version["canarySdkVersion"]}",
             "umeng-analytics"          : "com.umeng.analytics:analytics:6.0.1",
+
+            "multidex"                 : "androidx.multidex:multidex:2.0.0",
+
     ]
 }

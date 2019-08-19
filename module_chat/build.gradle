@@ -1,0 +1,28 @@
+apply from:"../common_component_build.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    api rootProject.ext.dependencies["paginate"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    //tools
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
+
+    implementation 'com.parse:parse-android:1.13.1'
+    implementation 'com.android.support:multidex:1.0.1'
+    // Google firebase cloud messaging
+    implementation 'com.google.android.gms:play-services-base:11.4.0'
+    implementation 'com.google.firebase:firebase-messaging:11.4.0'
+    // bugly start
+    implementation 'com.tencent.bugly:crashreport:2.6.6.1'
+    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
+    // bugly end
+    // meizu push
+    implementation 'com.meizu.flyme.internet:push-internal:3.7.0@aar'//配置集成sdk
+
+    implementation project(":library_chat_easeui")
+    implementation project(":library_chat_hmspush")
+    api rootProject.ext.dependencies["multidex"]
+}

@@ -1,4 +1,4 @@
-include ':app',
+include ':app', ':module_chat',
         ':CommonSDK',
         ':CommonRes',
         ':module_translate',
@@ -8,4 +8,4 @@ include ':app',
         ':library_picture',
         ':library_ucrop',
         ':module_user_center',
-        ':module_hotspot'
+        ':module_hotspot', ':library_chat_easeui', ':library_chat_hmspush'
