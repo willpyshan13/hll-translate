@@ -6,7 +6,8 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    api rootProject.ext.dependencies["paginate"]
-//    kapt rootProject.ext.dependencies["arouter-compiler"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    api project(":CommonRes")
     implementation 'com.parse:parse-android:1.13.1'
     implementation 'com.android.support:multidex:1.0.1'
     // Google firebase cloud messaging
