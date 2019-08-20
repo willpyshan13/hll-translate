@@ -49,6 +49,11 @@ public interface RouterHub {
     String SETTINGS = "/setting";
     String HOTSPOT="/hotspot";
 
+
+    /**
+     * 聊天室
+     */
+    String CHAT="/chat";
     /**
      * 服务组件, 用于给每个组件暴露特有的服务
      */
@@ -71,4 +76,6 @@ public interface RouterHub {
 
     String LAUNCHER_FLOW=LAUNCHER+"/FlowActivity";
     String LAUNCHER_EMERGENCY=LAUNCHER+"/EmergencyActivity";
+
+    String CHAT_login=CHAT+"/LoginActivity";
 }

@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hll.chat.DemoApplication;
 import com.hll.chat.DemoHelper;
 import com.hll.chat.R;
@@ -38,10 +39,13 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 
+import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+
 /**
  * Login screen
  * 
  */
+@Route(path = RouterHub.CHAT_login)
 public class LoginActivity extends BaseActivity {
 	private static final String TAG = "LoginActivity";
 	public static final int REQUEST_CODE_SETNICK = 1;
