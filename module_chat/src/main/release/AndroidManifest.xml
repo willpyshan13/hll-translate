@@ -67,15 +67,6 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <!-- 适配Android 7.0, 需要将下方的com.hyphenate.chatuidemo替换为你的app包名 -->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileProvider"
-            android:grantUriPermissions="true"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
 
         <activity
             android:name=".ui.MainActivity"
@@ -552,7 +543,9 @@
             </intent-filter>
         </receiver>
         <!-- Mi推送配置 end-->
-
+        <meta-data
+            android:name="com.hll.chat.app.GlobalConfiguration"
+            android:value="ConfigModule"/>
     </application>
 
 </manifest>

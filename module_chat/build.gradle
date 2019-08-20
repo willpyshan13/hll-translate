@@ -22,5 +22,4 @@ dependencies {
 
     implementation project(":library_chat_easeui")
     implementation project(":library_chat_hmspush")
-    api rootProject.ext.dependencies["multidex"]
 }
