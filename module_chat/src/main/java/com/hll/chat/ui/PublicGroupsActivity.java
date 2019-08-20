@@ -108,7 +108,7 @@ public class PublicGroupsActivity extends BaseActivity {
 	}
 
 	public void search(View view){
-	    startActivity(new Intent(this, com.hyphenate.chatuidemo.ui.PublicGroupsSeachActivity.class));
+	    startActivity(new Intent(this, PublicGroupsSeachActivity.class));
 	}
 	
 	private void loadAndShowData(){

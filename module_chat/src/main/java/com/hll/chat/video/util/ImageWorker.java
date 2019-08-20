@@ -277,13 +277,13 @@ public abstract class ImageWorker {
             // here, if it was, and the thread is still running, we may as well add the processed
             // bitmap to our cache as it might be used again in the future
             if (bitmap != null) {
-                if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+                if (Utils.hasHoneycomb()) {
                     // Running on Honeycomb or newer, so wrap in a standard BitmapDrawable
                     drawable = new BitmapDrawable(mResources, bitmap);
                 } else {
                     // Running on Gingerbread or older, so wrap in a RecyclingBitmapDrawable
                     // which will recycle automagically
-                    drawable = new com.hyphenate.chatuidemo.video.util.RecyclingBitmapDrawable(mResources, bitmap);
+                    drawable = new RecyclingBitmapDrawable(mResources, bitmap);
                 }
 
                 if (mImageCache != null) {

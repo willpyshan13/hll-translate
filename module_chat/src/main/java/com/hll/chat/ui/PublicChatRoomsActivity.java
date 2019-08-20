@@ -190,7 +190,7 @@ public class PublicChatRoomsActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 	            if (position == 0) {
 		            // create chat room
-		            startActivity(new Intent(PublicChatRoomsActivity.this, com.hyphenate.chatuidemo.ui.NewChatRoomActivity.class));
+		            startActivity(new Intent(PublicChatRoomsActivity.this, NewChatRoomActivity.class));
 	            } else {
 		            final EMChatRoom room = adapter.getItem(position - 1);
 		            startActivity(new Intent(PublicChatRoomsActivity.this, ChatActivity.class).putExtra("chatType", 3).

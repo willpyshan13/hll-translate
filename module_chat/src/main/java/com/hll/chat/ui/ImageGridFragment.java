@@ -168,7 +168,7 @@ public class ImageGridFragment extends Fragment implements OnItemClickListener {
 		{
 			
 			Intent intent=new Intent();
-			intent.setClass(getActivity(), com.hyphenate.chatuidemo.ui.RecorderVideoActivity.class);
+			intent.setClass(getActivity(), RecorderVideoActivity.class);
 			startActivityForResult(intent, 100);
 		}else{
 			VideoEntity vEntty=mList.get(position-1);

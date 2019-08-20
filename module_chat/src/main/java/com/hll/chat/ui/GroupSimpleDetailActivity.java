@@ -59,7 +59,7 @@ public class GroupSimpleDetailActivity extends BaseActivity {
 		    groupname = groupInfo.getGroupName();
 		    groupid = groupInfo.getGroupId();
 		}else{
-		    group = com.hyphenate.chatuidemo.ui.PublicGroupsSeachActivity.searchedGroup;
+		    group = PublicGroupsSeachActivity.searchedGroup;
 		    if(group == null)
 		        return;
 		    groupname = group.getGroupName();

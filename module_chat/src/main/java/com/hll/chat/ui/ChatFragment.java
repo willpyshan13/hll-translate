@@ -124,7 +124,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count == 1 && "@".equals(String.valueOf(s.charAt(start)))){
-                        startActivityForResult(new Intent(getActivity(), com.hyphenate.chatuidemo.ui.PickAtUserActivity.class).
+                        startActivityForResult(new Intent(getActivity(), PickAtUserActivity.class).
                                 putExtra("groupId", toChatUsername), REQUEST_CODE_SELECT_AT_USER);
                     }
                 }
@@ -173,7 +173,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
                 break;
 
             case ContextMenuActivity.RESULT_CODE_FORWARD: // forward
-                Intent intent = new Intent(getActivity(), com.hyphenate.chatuidemo.ui.ForwardMessageActivity.class);
+                Intent intent = new Intent(getActivity(), ForwardMessageActivity.class);
                 intent.putExtra("forward_msg_id", contextMenuMessage.getMsgId());
                 startActivity(intent);
                 break;
@@ -293,7 +293,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
     @Override
     public void onAvatarClick(String username) {
         //handling when user click avatar
-        Intent intent = new Intent(getActivity(), com.hyphenate.chatuidemo.ui.UserProfileActivity.class);
+        Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         intent.putExtra("username", username);
         startActivity(intent);
     }
@@ -326,7 +326,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
     public boolean onExtendMenuItemClick(int itemId, View view) {
         switch (itemId) {
         case ITEM_VIDEO:
-            Intent intent = new Intent(getActivity(), com.hyphenate.chatuidemo.ui.ImageGridActivity.class);
+            Intent intent = new Intent(getActivity(), ImageGridActivity.class);
             startActivityForResult(intent, REQUEST_CODE_SELECT_VIDEO);
             break;
         case ITEM_FILE: //file
@@ -369,7 +369,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
         if (!EMClient.getInstance().isConnected()) {
             Toast.makeText(getActivity(), R.string.not_connect_to_server, Toast.LENGTH_SHORT).show();
         } else {
-            startActivity(new Intent(getActivity(), com.hyphenate.chatuidemo.ui.VoiceCallActivity.class).putExtra("username", toChatUsername)
+            startActivity(new Intent(getActivity(), VoiceCallActivity.class).putExtra("username", toChatUsername)
                     .putExtra("isComingCall", false));
             // voiceCallBtn.setEnabled(false);
             inputMenu.hideExtendMenuContainer();
@@ -383,7 +383,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragmentHe
         if (!EMClient.getInstance().isConnected())
             Toast.makeText(getActivity(), R.string.not_connect_to_server, Toast.LENGTH_SHORT).show();
         else {
-            startActivity(new Intent(getActivity(), com.hyphenate.chatuidemo.ui.VideoCallActivity.class).putExtra("username", toChatUsername)
+            startActivity(new Intent(getActivity(), VideoCallActivity.class).putExtra("username", toChatUsername)
                     .putExtra("isComingCall", false));
             // videoCallBtn.setEnabled(false);
             inputMenu.hideExtendMenuContainer();

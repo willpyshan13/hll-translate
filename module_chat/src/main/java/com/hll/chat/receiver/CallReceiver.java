@@ -19,8 +19,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.hll.chat.DemoHelper;
-import com.hyphenate.chatuidemo.ui.VideoCallActivity;
-import com.hyphenate.chatuidemo.ui.VoiceCallActivity;
+import com.hll.chat.ui.VideoCallActivity;
+import com.hll.chat.ui.VoiceCallActivity;
 import com.hyphenate.util.EMLog;
 
 public class CallReceiver extends BroadcastReceiver{

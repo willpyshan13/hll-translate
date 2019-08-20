@@ -121,7 +121,7 @@ public class ImageResizer extends ImageWorker {
 		// END_INCLUDE (read_bitmap_dimensions)
 
 		// If we're running on Honeycomb or newer, try to use inBitmap
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+		if (Utils.hasHoneycomb()) {
 			addInBitmapOptions(options, cache);
 		}
 
@@ -160,7 +160,7 @@ public class ImageResizer extends ImageWorker {
 				reqHeight);
 
 		// If we're running on Honeycomb or newer, try to use inBitmap
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+		if (Utils.hasHoneycomb()) {
 			addInBitmapOptions(options, cache);
 		}
 
@@ -203,7 +203,7 @@ public class ImageResizer extends ImageWorker {
 		options.inJustDecodeBounds = false;
 
 		// If we're running on Honeycomb or newer, try to use inBitmap
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+		if (Utils.hasHoneycomb()) {
 			addInBitmapOptions(options, cache);
 		}
 

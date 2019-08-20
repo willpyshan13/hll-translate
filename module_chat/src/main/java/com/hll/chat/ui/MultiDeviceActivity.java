@@ -48,7 +48,7 @@ public class MultiDeviceActivity extends BaseActivity {
         registerForContextMenu(listView);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            startActivityForResult(new Intent(this, com.hyphenate.chatuidemo.ui.NamePasswordActivity.class), REQUEST_CODE_USERNAME_PASSWORD);
+            startActivityForResult(new Intent(this, NamePasswordActivity.class), REQUEST_CODE_USERNAME_PASSWORD);
         }
 
     }

@@ -18,7 +18,6 @@ import android.widget.RelativeLayout;
 import com.hll.chat.R;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConferenceStream;
-import com.hyphenate.chatuidemo.conference.ConferenceActivity;
 import com.hyphenate.easeui.model.EaseCompat;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.media.EMCallSurfaceView;

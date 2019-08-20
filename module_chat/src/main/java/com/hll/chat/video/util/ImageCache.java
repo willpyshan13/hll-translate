@@ -147,7 +147,7 @@ public class ImageCache {
 			// would just need to
 			// be the upper bound (due to changes in how inBitmap can re-use
 			// bitmaps).
-			if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+			if (Utils.hasHoneycomb()) {
 				mReusableBitmaps = Collections
 						.synchronizedSet(new HashSet<SoftReference<Bitmap>>());
 			}
@@ -161,15 +161,15 @@ public class ImageCache {
 				@Override
 				protected void entryRemoved(boolean evicted, String key,
 						BitmapDrawable oldValue, BitmapDrawable newValue) {
-					if (com.hyphenate.chatuidemo.video.util.RecyclingBitmapDrawable.class.isInstance(oldValue)) {
+					if (RecyclingBitmapDrawable.class.isInstance(oldValue)) {
 						// The removed entry is a recycling drawable, so notify
 						// it
 						// that it has been removed from the memory cache
-						((com.hyphenate.chatuidemo.video.util.RecyclingBitmapDrawable) oldValue).setIsCached(false);
+						((RecyclingBitmapDrawable) oldValue).setIsCached(false);
 					} else {
 						// The removed entry is a standard BitmapDrawable
 
-						if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycomb()) {
+						if (Utils.hasHoneycomb()) {
 							// We're running on Honeycomb or later, so add the
 							// bitmap
 							// to a SoftReference set for possible use with
@@ -210,10 +210,10 @@ public class ImageCache {
 
 		// Add to memory cache
 		if (mMemoryCache != null) {
-			if (com.hyphenate.chatuidemo.video.util.RecyclingBitmapDrawable.class.isInstance(value)) {
+			if (RecyclingBitmapDrawable.class.isInstance(value)) {
 				// The removed entry is a recycling drawable, so notify it
 				// that it has been added into the memory cache
-				((com.hyphenate.chatuidemo.video.util.RecyclingBitmapDrawable) value).setIsCached(true);
+				((RecyclingBitmapDrawable) value).setIsCached(true);
 			}
 			mMemoryCache.put(data, value);
 		}
@@ -349,7 +349,7 @@ public class ImageCache {
 	private static boolean canUseForInBitmap(Bitmap candidate,
 			BitmapFactory.Options targetOptions) {
 		// BEGIN_INCLUDE(can_use_for_inbitmap)
-		if (!com.hyphenate.chatuidemo.video.util.Utils.hasKitKat()) {
+		if (!Utils.hasKitKat()) {
 			// On earlier versions, the dimensions must match exactly and the
 			// inSampleSize must be 1
 			return candidate.getWidth() == targetOptions.outWidth
@@ -458,7 +458,7 @@ public class ImageCache {
 //			return bitmap.getAllocationByteCount();
 //		}
 
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasHoneycombMR1()) {
+		if (Utils.hasHoneycombMR1()) {
 			return bitmap.getByteCount();
 		}
 
@@ -474,7 +474,7 @@ public class ImageCache {
 	 */
 	@TargetApi(VERSION_CODES.GINGERBREAD)
 	public static boolean isExternalStorageRemovable() {
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasGingerbread()) {
+		if (Utils.hasGingerbread()) {
 			return Environment.isExternalStorageRemovable();
 		}
 		return true;
@@ -489,7 +489,7 @@ public class ImageCache {
 	 */
 	@TargetApi(VERSION_CODES.FROYO)
 	public static File getExternalCacheDir(Context context) {
-		if (com.hyphenate.chatuidemo.video.util.Utils.hasFroyo()) {
+		if (Utils.hasFroyo()) {
 			return context.getExternalCacheDir();
 		}
 

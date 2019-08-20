@@ -46,7 +46,6 @@ import com.hyphenate.chat.EMCursorResult;
 import com.hyphenate.chat.EMGroup;
 import com.hyphenate.chat.EMMucSharedFile;
 import com.hyphenate.chat.EMPushConfigs;
-import com.hyphenate.chatuidemo.ui.SharedFilesActivity;
 import com.hyphenate.easeui.ui.EaseGroupListener;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.easeui.widget.EaseAlertDialog;
@@ -1028,7 +1027,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 							EMLog.d(TAG, st11);
 							// 进入选人页面
 							startActivityForResult(
-									(new Intent(GroupDetailsActivity.this, com.hyphenate.chatuidemo.ui.GroupPickContactsActivity.class).putExtra("groupId", groupId)),
+									(new Intent(GroupDetailsActivity.this, GroupPickContactsActivity.class).putExtra("groupId", groupId)),
 									REQUEST_CODE_ADD_USER);
 						}
 					});

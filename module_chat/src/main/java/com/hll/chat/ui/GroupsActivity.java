@@ -113,10 +113,10 @@ public class GroupsActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				if (position == 1) {
 					// create a new group
-					startActivityForResult(new Intent(GroupsActivity.this, com.hyphenate.chatuidemo.ui.NewGroupActivity.class), 0);
+					startActivityForResult(new Intent(GroupsActivity.this, NewGroupActivity.class), 0);
 				} else if (position == 2) {
 					// join a public group
-					startActivityForResult(new Intent(GroupsActivity.this, com.hyphenate.chatuidemo.ui.PublicGroupsActivity.class), 0);
+					startActivityForResult(new Intent(GroupsActivity.this, PublicGroupsActivity.class), 0);
 				} else {
 					// enter group chat
 					Intent intent = new Intent(GroupsActivity.this, ChatActivity.class);

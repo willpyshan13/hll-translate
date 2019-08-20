@@ -11,13 +11,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.hll.chat.Constant
+import com.hll.chat.DemoHelper
+import com.hll.chat.R
+import com.hll.chat.ui.BaseActivity
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMConferenceMember
 import com.hyphenate.chat.EMCursorResult
-import com.hyphenate.chatuidemo.Constant
-import com.hyphenate.chatuidemo.DemoHelper
-import com.hyphenate.chatuidemo.R
-import com.hyphenate.chatuidemo.ui.BaseActivity
 import com.hyphenate.easeui.utils.EaseUserUtils
 import com.hyphenate.exceptions.HyphenateException
 import com.hyphenate.util.EMLog

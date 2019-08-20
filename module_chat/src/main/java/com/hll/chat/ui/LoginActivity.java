@@ -213,7 +213,7 @@ public class LoginActivity extends BaseActivity {
 	 * @param view
 	 */
 	public void register(View view) {
-		startActivityForResult(new Intent(this, com.hyphenate.chatuidemo.ui.RegisterActivity.class), 0);
+		startActivityForResult(new Intent(this, RegisterActivity.class), 0);
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class LoginActivity extends BaseActivity {
 	 * @param v
 	 */
 	public void serviceCheck(View v) {
-		startActivity(new Intent(this, com.hyphenate.chatuidemo.ui.ServiceCheckActivity.class));
+		startActivity(new Intent(this, ServiceCheckActivity.class));
 	}
 
 	@Override

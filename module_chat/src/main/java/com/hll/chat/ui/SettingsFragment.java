@@ -42,12 +42,6 @@ import com.hll.chat.utils.PreferenceManager;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
-import com.hyphenate.chatuidemo.ui.MultiDeviceActivity;
-import com.hyphenate.chatuidemo.ui.OfflinePushNickActivity;
-import com.hyphenate.chatuidemo.ui.OfflinePushSettingsActivity;
-import com.hyphenate.chatuidemo.ui.ServiceCheckActivity;
-import com.hyphenate.chatuidemo.ui.SetServersActivity;
-import com.hyphenate.chatuidemo.ui.UserProfileActivity;
 import com.hyphenate.easeui.model.EaseCompat;
 import com.hyphenate.easeui.widget.EaseSwitchButton;
 import com.hyphenate.util.EMLog;
@@ -521,7 +515,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
 						pd.dismiss();
 						// show login screen
 						((MainActivity) getActivity()).finish();
-						startActivity(new Intent(getActivity(), com.hyphenate.chatuidemo.ui.LoginActivity.class));
+						startActivity(new Intent(getActivity(), LoginActivity.class));
 						
 					}
 				});
