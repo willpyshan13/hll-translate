@@ -129,6 +129,6 @@ ext {
             "umeng-analytics"          : "com.umeng.analytics:analytics:6.0.1",
 
             "multidex"                 : "androidx.multidex:multidex:2.0.0",
-
+            "pickerview"               : "org.jaaksi:pickerview:2.0.1",
     ]
 }
