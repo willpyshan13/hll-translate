@@ -75,7 +75,7 @@ public interface RouterHub {
     String HOTSPOT_HOME=HOTSPOT+"/HotspotActivity";
 
     String LAUNCHER_FLOW=LAUNCHER+"/FlowActivity";
-    String LAUNCHER_EMERGENCY=LAUNCHER+"/EmergencyActivity";
+    String LAUNCHER_EMERGENCY=TRANSLATE+"/EmergencyActivity";
 
     String CHAT_login=CHAT+"/LoginActivity";
 }

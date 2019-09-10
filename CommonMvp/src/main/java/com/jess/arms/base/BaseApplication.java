@@ -19,6 +19,7 @@ import android.app.Application;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
 
 import com.jess.arms.base.delegate.AppDelegate;
 import com.jess.arms.base.delegate.AppLifecycles;
@@ -41,7 +42,7 @@ import com.jess.arms.utils.Preconditions;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public class BaseApplication extends Application implements App {
+public class BaseApplication extends MultiDexApplication implements App {
     private AppLifecycles mAppDelegate;
 
     /**

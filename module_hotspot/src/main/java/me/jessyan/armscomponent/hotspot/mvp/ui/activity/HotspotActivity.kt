@@ -12,7 +12,7 @@ import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.utils.ArmsUtils
 import com.luck.picture.lib.tools.ToastManage
-import com.wil.user.R
+import me.jessyan.armscomponent.hotspot.R
 import androidx.appcompat.app.AlertDialog
 import me.jessyan.armscomponent.commonsdk.core.RouterHub
 import me.jessyan.armscomponent.hotspot.constant.HotSpotConstant
