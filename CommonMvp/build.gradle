@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -98,7 +101,7 @@ dependencies {
     }
     api rootProject.ext.dependencies["okhttp3"]
     api rootProject.ext.dependencies["glide"]
-    annotationProcessor(rootProject.ext.dependencies["glide-compiler"]) {
+    kapt(rootProject.ext.dependencies["glide-compiler"]) {
         exclude module: 'jsr305'
     }
 
@@ -107,7 +110,7 @@ dependencies {
     //tools
     compileOnly rootProject.ext.dependencies["javax.annotation"]
     api rootProject.ext.dependencies["dagger2"]
-    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
     compileOnly rootProject.ext.dependencies["androideventbus"]
     compileOnly rootProject.ext.dependencies["eventbus"]
     api rootProject.ext.dependencies["gson"]

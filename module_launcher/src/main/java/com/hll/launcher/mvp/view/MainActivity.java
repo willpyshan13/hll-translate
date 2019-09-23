@@ -25,6 +25,7 @@ import com.hll.launcher.constant.LauncherConstant;
 import com.hll.launcher.di.component.DaggerLauncherComponent;
 import com.hll.launcher.mvp.contract.LauncherContract;
 import com.hll.launcher.mvp.presenter.LauncherPresenter;
+import com.hll.launcher.mvp.ui.activity.CountrySelectActivity;
 import com.hll.launcher.mvp.ui.activity.CurrencyConvertActivity;
 import com.hll.launcher.mvp.ui.activity.FlowChargeActivity;
 import com.jess.arms.base.BaseActivity;
@@ -40,7 +41,7 @@ import me.jessyan.armscomponent.commonsdk.utils.TimeUtils;
 import me.jessyan.armscomponent.commonsdk.utils.Utils;
 
 @Route(path = RouterHub.TRANSLATE_DETAILACTIVITY)
-public class MainActivity extends BaseActivity<LauncherPresenter> implements LauncherContract.View {
+public class MainActivity extends BaseActivity<LauncherPresenter> implements LauncherContract.View, View.OnClickListener {
 
     @BindView(R2.id.launcher_tv_local)
     TextView mTvLocal;
@@ -80,6 +81,15 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_TIME_TICK);
         registerReceiver(new TimeBroadcast(), intentFilter);
+
+        mTvNation.setOnClickListener(this);
+        mTvNationDate.setOnClickListener(this);
+        mTvNationTime.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(this, CountrySelectActivity.class));
     }
 
 

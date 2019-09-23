@@ -3,7 +3,8 @@
     package="com.hll.launcher">
 
     <application>
-        <activity android:name=".mvp.ui.activity.CurrencyConvertActivity"></activity>
+        <activity android:name=".mvp.ui.activity.CountrySelectActivity"></activity>
+        <activity android:name=".mvp.ui.activity.CurrencyConvertActivity" />
         <activity android:name=".mvp.ui.activity.FlowChargeActivity" />
         <activity
             android:name=".mvp.view.MainActivity"

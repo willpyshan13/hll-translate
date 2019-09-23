@@ -7,7 +7,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(":CommonRes")
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
     //tools
-    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
 }
