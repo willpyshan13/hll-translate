@@ -16,12 +16,17 @@
 package com.hll.launcher.mvp.presenter;
 
 import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 
 import com.hll.launcher.mvp.contract.LauncherContract;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.http.imageloader.ImageLoader;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
+import com.jess.arms.utils.LogUtils;
 
 import javax.inject.Inject;
 

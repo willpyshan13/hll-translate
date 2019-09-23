@@ -12,13 +12,13 @@
     </string-array>
 
     <integer-array name="launcher_image">
-        <item>@mipmap/launcher_main_voice</item>
-        <item>@mipmap/launcher_main_photo</item>
-        <item>@mipmap/launcher_main_share</item>
-        <item>@mipmap/launcher_main_network_speak</item>
-        <item>@mipmap/launcher_main_transfor</item>
-        <item>@mipmap/launcher_main_sos</item>
-        <item>@mipmap/launcher_main_global</item>
-        <item>@mipmap/launcher_main_setting</item>
+        <item>@mipmap/phonetic_menu_main</item>
+        <item>@mipmap/photograph_menu_main</item>
+        <item>@mipmap/hot_sp_main</item>
+        <item>@mipmap/ico_chat</item>
+        <item>@mipmap/exchange_rate_menu_main</item>
+        <item>@mipmap/sos_menu_main</item>
+        <item>@mipmap/global_menu_main</item>
+        <item>@mipmap/icon_vsim</item>
     </integer-array>
 </resources>

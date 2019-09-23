@@ -5,8 +5,10 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
 import com.hll.launcher.R;
 import com.hll.launcher.R2;
 import com.hll.launcher.constant.LauncherConstant;
@@ -26,11 +29,14 @@ import com.hll.launcher.mvp.ui.activity.CurrencyConvertActivity;
 import com.hll.launcher.mvp.ui.activity.FlowChargeActivity;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.utils.LogUtils;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import butterknife.BindView;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
+import me.jessyan.armscomponent.commonsdk.utils.TimeUtils;
 import me.jessyan.armscomponent.commonsdk.utils.Utils;
 
 @Route(path = RouterHub.TRANSLATE_DETAILACTIVITY)
@@ -69,7 +75,37 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
     public void initData(@Nullable Bundle savedInstanceState) {
         mMainRecycle.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false));
         mMainRecycle.setAdapter(new MainAdapter(this));
+
+        updateLocalTime();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_TIME_TICK);
+        registerReceiver(new TimeBroadcast(), intentFilter);
     }
+
+
+    class TimeBroadcast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateLocalTime();
+        }
+    }
+
+    /**
+     * Desc:更新本地时间
+     * <p>
+     * author: pengyushan
+     * Date: 2019-09-23
+     */
+    private void updateLocalTime() {
+        LogUtils.debugInfo("updateLocalTime");
+        mTvLocalimeTime.setText(TimeUtils.Companion.getFormatTime(System.currentTimeMillis()));
+        mTvLocalDate.setText(TimeUtils.Companion.getFormatDate(System.currentTimeMillis())+" 北京");
+
+        mTvNationTime.setText(TimeUtils.Companion.getFormatTime(System.currentTimeMillis()));
+        mTvNationDate.setText(TimeUtils.Companion.getFormatDate(System.currentTimeMillis())+" 纽约");
+    }
+
 
     @Override
     public void shonContent() {
@@ -110,25 +146,22 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
         @Override
         public void onBindViewHolder(@NonNull MainHolder holder, int position) {
             holder.title.setText(itemIndex[position]);
-            holder.headimage.setBackgroundResource(itemImage[position]);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (position == LauncherConstant.LauncherType.LAUNCHER_Setting){
-                        Utils.navigation(MainActivity.this, RouterHub.SETTING_HOME);
-                    }else if(position ==LauncherConstant.LauncherType.LAUNCHER_TRANSLATE){
-                        Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
-                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_HotSpot){
-                        Utils.navigation(MainActivity.this, RouterHub.HOTSPOT_HOME);
-                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_FlowCharge){
-                        startActivity(new Intent(MainActivity.this, FlowChargeActivity.class));
-                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_Currency){
-                        startActivity(new Intent(MainActivity.this, CurrencyConvertActivity.class));
-                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_Emergency){
-                        Utils.navigation(MainActivity.this, RouterHub.LAUNCHER_EMERGENCY);
-                    }else if(position==LauncherConstant.LauncherType.LAUNCHER_Chat){
-                        Utils.navigation(MainActivity.this, RouterHub.CHAT_login);
-                    }
+            holder.headimage.setBackgroundResource(mContext.getResources().obtainTypedArray(R.array.launcher_image).getResourceId(position, 0));
+            holder.itemView.setOnClickListener(view -> {
+                if (position == LauncherConstant.LauncherType.LAUNCHER_Setting) {
+                    Utils.navigation(MainActivity.this, RouterHub.SETTING_HOME);
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_TRANSLATE) {
+                    Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_HOME);
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_HotSpot) {
+                    Utils.navigation(MainActivity.this, RouterHub.HOTSPOT_HOME);
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_FlowCharge) {
+                    startActivity(new Intent(MainActivity.this, FlowChargeActivity.class));
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_Currency) {
+                    startActivity(new Intent(MainActivity.this, CurrencyConvertActivity.class));
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_Emergency) {
+                    Utils.navigation(MainActivity.this, RouterHub.LAUNCHER_EMERGENCY);
+                } else if (position == LauncherConstant.LauncherType.LAUNCHER_Chat) {
+                    Utils.navigation(MainActivity.this, RouterHub.CHAT_login);
                 }
             });
         }
