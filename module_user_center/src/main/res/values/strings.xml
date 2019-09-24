@@ -1,3 +1,23 @@
 <resources>
     <string name="setting_home" translatable="false">Settings</string>
+
+    <string-array name="setting_name">
+        <item>WLAN</item>
+        <item>翻译语速</item>
+        <item>亮度</item>
+        <item>系统语言</item>
+        <item>检查更新</item>
+        <item>清除使用记录</item>
+        <item>关于本机</item>
+    </string-array>
+
+    <integer-array name="setting_icon">
+        <item>@mipmap/setting_wlan_menu</item>
+        <item>@mipmap/setting_speech_rate_menu</item>
+        <item>@mipmap/setting_brightness_menu</item>
+        <item>@mipmap/setting_language_menu</item>
+        <item>@mipmap/setting_update_menu</item>
+        <item>@mipmap/setting_mobile_network_menu</item>
+        <item>@mipmap/setting_about_menu</item>
+    </integer-array>
 </resources>
