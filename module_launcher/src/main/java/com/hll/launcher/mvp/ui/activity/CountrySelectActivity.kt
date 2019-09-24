@@ -35,6 +35,7 @@ import kotlinx.android.synthetic.main.launcher_country_select.*
  * @Author: pengyushan
  */
 class CountrySelectActivity : BaseActivity<CountrySelectPresenter>(), CountrySelectContract.View {
+    var mSourceList:Array<String> = arrayOf()
 
     override fun setupActivityComponent(appComponent: AppComponent) {
         DaggerCountrySelectComponent
@@ -50,25 +51,24 @@ class CountrySelectActivity : BaseActivity<CountrySelectPresenter>(), CountrySel
         return R.layout.launcher_country_select
     }
 
-
     override fun initData(savedInstanceState: Bundle?) {
+        mSourceList = resources.getStringArray(R.array.public_translate_source)
         launcher_country_recycle.layoutManager = LinearLayoutManager(this)
         launcher_country_recycle.adapter = RecycleAdapter()
-
     }
 
-    class RecycleAdapter :RecyclerView.Adapter<RecycleViewHolder>(){
+    inner class RecycleAdapter : RecyclerView.Adapter<RecycleViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecycleViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.launcher_country_item,null)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.launcher_country_item, null)
             return RecycleViewHolder(view)
         }
 
         override fun getItemCount(): Int {
-            return 5
+            return this@CountrySelectActivity.mSourceList.size
         }
 
         override fun onBindViewHolder(holder: RecycleViewHolder, position: Int) {
-            holder.textView.launcher_country_item_tv.text ="111111"
+            holder.textView.launcher_country_item_tv.text = this@CountrySelectActivity.mSourceList[position]
         }
 
     }

@@ -124,7 +124,7 @@ public class MainActivity extends BaseActivity<LauncherPresenter> implements Lau
 
     @Override
     public Activity getActivity() {
-        return null;
+        return this;
     }
 
     @Override
