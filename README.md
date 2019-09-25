@@ -1,1 +1,3 @@
-Mvp for Store
+翻译机
+基于kotlin和arouter实现的组件化方案
+
