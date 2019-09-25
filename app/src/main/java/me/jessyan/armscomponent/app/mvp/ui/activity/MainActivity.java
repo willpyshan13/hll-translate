@@ -27,8 +27,6 @@ import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import me.jessyan.armscomponent.app.R;
 import me.jessyan.armscomponent.commonsdk.core.RouterHub;
 import me.jessyan.armscomponent.commonsdk.utils.Utils;
@@ -48,21 +46,6 @@ import me.jessyan.armscomponent.commonsdk.utils.Utils;
  */
 @Route(path = RouterHub.APP_MAINACTIVITY)
 public class MainActivity extends BaseActivity {
-    /**
-     *
-     */
-    @BindView(R.id.bt_zhihu)
-    Button mZhihuButton;
-    /**
-     *
-     */
-    @BindView(R.id.bt_gank)
-    Button mGankButton;
-    /**
-     *
-     */
-    @BindView(R.id.bt_gold)
-    Button mGoldButton;
 
     /**
      *
@@ -97,27 +80,6 @@ public class MainActivity extends BaseActivity {
             mPressedTime = mNowTime;
         } else {
             super.onBackPressed();
-        }
-    }
-
-    /**
-     * 这里注意下在组件的页面中(使用了 R2 的页面)使用 {@link butterknife.OnClick} 会有概率出现 id 不正确的问题, 使用以下方式解决
-     * <pre>
-     * @param view
-     * @OnClick({R2.id.button1, R2.id.button2 }) public void Onclick(View view){      if (view.getId() == R.id.button1){          ...      } else if(view.getId() == R.id.button2){          ...      } } </pre> <p> 在注解上使用 R2, 下面使用 R, 并且使用 {@code if else}, 替代 {@code switch}
-     */
-    @OnClick({R.id.bt_zhihu, R.id.bt_gank, R.id.bt_gold})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_zhihu:
-                Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_DETAILACTIVITY);
-                break;
-            case R.id.bt_gank:
-                Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_DETAILACTIVITY);
-                break;
-            case R.id.bt_gold:
-                Utils.navigation(MainActivity.this, RouterHub.TRANSLATE_DETAILACTIVITY);
-                break;
         }
     }
 }

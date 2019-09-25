@@ -41,8 +41,6 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder implements V
         itemView.setOnClickListener(this);
         //屏幕适配
         if (ThirdViewUtil.isUseAutolayout()) AutoUtils.autoSize(itemView);
-        //绑定 ButterKnife
-        ThirdViewUtil.bindTarget(this, itemView);
     }
 
     /**

@@ -75,18 +75,11 @@ android {
 
 dependencies {
     if (isBuildModule.toBoolean()) {
-        //view
-        kapt(rootProject.ext.dependencies["butterknife-compiler"]) {
-            exclude module: 'support-annotations'
-        }
-
         //test
         debugImplementation rootProject.ext.dependencies["canary-debug"]
         releaseImplementation rootProject.ext.dependencies["canary-release"]
         testImplementation rootProject.ext.dependencies["canary-release"]
     } else {
-        kapt rootProject.ext.dependencies["butterknife-compiler"]
-
         compileOnly rootProject.ext.dependencies["canary-debug"]
         compileOnly rootProject.ext.dependencies["canary-release"]
     }

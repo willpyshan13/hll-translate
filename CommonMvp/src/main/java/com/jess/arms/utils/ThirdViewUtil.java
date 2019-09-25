@@ -27,10 +27,6 @@ import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 import static com.jess.arms.base.Platform.DEPENDENCY_AUTO_LAYOUT;
 import static com.jess.arms.base.delegate.ActivityDelegate.LAYOUT_FRAMELAYOUT;
 import static com.jess.arms.base.delegate.ActivityDelegate.LAYOUT_LINEARLAYOUT;
@@ -52,18 +48,6 @@ public class ThirdViewUtil {
 
     public static boolean isUseAutolayout() {
         return DEPENDENCY_AUTO_LAYOUT && HAS_AUTO_LAYOUT_META == 1;
-    }
-
-    public static Unbinder bindTarget(Object target, Object source) {
-        if (source instanceof AppCompatActivity) {
-            return ButterKnife.bind(target, (AppCompatActivity) source);
-        } else if (source instanceof View) {
-            return ButterKnife.bind(target, (View) source);
-        } else if (source instanceof Dialog) {
-            return ButterKnife.bind(target, (Dialog) source);
-        } else {
-            return Unbinder.EMPTY;
-        }
     }
 
     @Nullable

@@ -26,8 +26,6 @@ import com.jess.arms.utils.ArmsUtils;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import timber.log.Timber;
 
 /**
@@ -43,7 +41,6 @@ public class FragmentDelegateImpl implements FragmentDelegate {
     private FragmentManager mFragmentManager;
     private Fragment mFragment;
     private IFragment iFragment;
-    private Unbinder mUnbinder;
 
     public FragmentDelegateImpl(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         this.mFragmentManager = fragmentManager;
@@ -65,9 +62,7 @@ public class FragmentDelegateImpl implements FragmentDelegate {
 
     @Override
     public void onCreateView(@Nullable View view, @Nullable Bundle savedInstanceState) {
-        //绑定到butterknife
-        if (view != null)
-            mUnbinder = ButterKnife.bind(mFragment, view);
+
     }
 
     @Override
@@ -102,22 +97,13 @@ public class FragmentDelegateImpl implements FragmentDelegate {
 
     @Override
     public void onDestroyView() {
-        if (mUnbinder != null && mUnbinder != Unbinder.EMPTY) {
-            try {
-                mUnbinder.unbind();
-            } catch (IllegalStateException e) {
-                e.printStackTrace();
-                //fix Bindings already cleared
-                Timber.w("onDestroyView: " + e.getMessage());
-            }
-        }
+
     }
 
     @Override
     public void onDestroy() {
         if (iFragment != null && iFragment.useEventBus())//如果要使用eventbus请将此方法返回true
             EventBusManager.getInstance().unregister(mFragment);//注册到事件主线
-        this.mUnbinder = null;
         this.mFragmentManager = null;
         this.mFragment = null;
         this.iFragment = null;
